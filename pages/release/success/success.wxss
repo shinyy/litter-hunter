@@ -1,0 +1,37 @@
+.topImg{
+  width: 110rpx;
+  height: 110rpx;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 35rpx;
+}
+page{
+  padding-top: 120rpx;
+}
+.t1{
+  font-size:34rpx;text-align:center;margin-bottom:200rpx;
+}
+.t2{
+  width: 500rpx;
+  color: #999;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 50rpx;
+}
+.code-box{
+  width: 300rpx;
+  height: 300rpx;
+  background: #fff;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+  
+}
+.code-box image{
+  width: 263rpx;
+  height: 263rpx;
+  margin: 0 auto;
+  display: block;
+}

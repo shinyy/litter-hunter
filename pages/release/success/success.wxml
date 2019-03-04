@@ -1,0 +1,6 @@
+<image src="../../../images/t.png" class="topImg"/>
+<view class="t1" >提交成功，请耐心等待审核</view>
+<view class="t2">长按识别二维码，关注公众号。第一时间知道审核结果。</view>
+<view class="code-box">
+  <image src="../../../images/ewm.png" />
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "消息公告",
+  "usingComponents": {
+    "tabBar": "/components/tabbar/tabbar"
+    
+  }
+}

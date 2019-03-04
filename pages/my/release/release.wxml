@@ -1,0 +1,163 @@
+<view class="tab y-grid y-bmar20">
+  <view class="y-flex1 {{index==0?'cur':''}}" data-index='0' data-type='all' bindtap="tabTap">全部</view>
+  <view class="y-flex1 {{index==1?'cur':''}}" data-index='1' data-type='auditing' bindtap="tabTap">审核中</view>
+  <view class="y-flex1 {{index==2?'cur':''}}" data-index='2' data-type='passed' bindtap="tabTap">已通过</view>
+  <view class="y-flex1 {{index==3?'cur':''}}" data-index='3' data-type='expired' bindtap="tabTap">已过期</view> 
+  <view class="y-flex1 {{index==4?'cur':''}}" data-index='4' data-type='reject' bindtap="tabTap">已拒绝</view>
+</view>
+<!-- <view class="tab-inner">
+  <view class="li">
+    
+  </view>
+</view> -->
+<view class="tabNav-inner">
+  <view style="display:none" class="li  y-bgw">
+    <view class="wmask">
+      <image src="../../../images/myRelease_icon_guoqi.png" />
+    </view>
+    <navigator class=" y-grid y-pad20">
+      <view class="img-box">
+        <image src="../../../images/pd.png" />
+        <view class="mark">展会</view>
+      </view>
+      <view class="t y-flex1">
+        <view class="til">AIFE 2019亚洲(北京)国际食品饮料博览会</view>
+        <view class="tils">由北京世博威国际展览有限公司独家承办将于2019年4月17日-19日在北京·中...</view>
+        <view class="txt">
+          <view>发布时间：2018/11/20</view>
+          <view>
+            发布时间：
+            <text>美国旧金山</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <view class="under">
+      <view class="y-grid y-alignc block1">
+        <text class="y-f24 y-rmar40">阅读 365</text>
+        <text class="y-flex1 y-f24">联系 5</text>
+        <view class="btn y-rmar20">特价</view>
+        <view class="btn">置顶</view>
+      </view>
+      <view class="y-grid y-alignc block2">
+        <text class="y-c33 y-rmar10">已发布</text>
+        <view class="y-c66 y-flex1">
+          还有
+          <text style="color:#f31d53">3</text>
+          天过期
+        </view>
+        <view class="y-grid y-alignc y-cred y-rmar40">
+          <image src="../../../images/myRelease_icon_edit.png" />
+          <text>编辑</text>
+        </view>
+        <view class="y-grid y-alignc y-cred">
+          <image src="../../../images/myRelease_icon_del.png" />
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class="li  y-bgw" wx:for="{{list.data}}">
+    <view class="wmask" wx:if="{{item.expired_day<=0}}">
+      <image src="../../../images/myRelease_icon_guoqi.png" />
+    </view>
+    <view class="wmask" wx:if="{{item.audit_remark}}">
+      <image src="../../../images/myRelease_icon_jujue.png" />
+    </view>
+    <navigator url="{{'../../classification/detail/detail?id='+item.id}}" class=" y-grid y-pad20" wx:if="{{item.cmodel!='air_ticket'&&item.cmodel!='group'}}">
+      <view class="img-box">
+        <image src="{{item.main_image+'?x-oss-process=image/crop,w_250,h_250'}}" />
+        <view class="mark">{{item.category}}</view>
+      </view>
+      <view class="t y-flex1">
+        <view class="til">{{item.title}}</view>
+        <view class="tils">{{item.brief?'适用展会：'+item.brief:''}}</view>
+        <view class="txt">
+          <view>发布时间：{{item.created_at}}</view>
+          <view>
+            发布时间：
+            <text>{{item.company_city}}</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+
+    <navigator  url="{{'../../classification/detail/detail?id='+item.id}}"  class="y-grid y-pad20" wx:if="{{item.cmodel=='air_ticket'||item.cmodel=='group'}}">
+    <view class="img-box">
+      <image src="{{item.main_image}}" />
+      <view class="mark">{{item.category}}</view>
+    </view>
+    <view class="t y-flex1">
+      <view class="ticket y-bmar10">
+        <view class="t y-grid y-alignc y-bmar10">
+          <image src="../../../images/wang.png" class="y-rmar10" />
+          <text class="y-rmar14">{{item.dep_address}}-{{item.ret_address}}</text>
+          <image src="../../../images/timeico.png" class="y-rmar14" />
+          <text>{{item.dep_date}}</text>
+        </view>
+        <view class="t y-grid y-alignc" wx:if="{{item.is_return}}">
+          <image src="../../../images/fan.png" class="y-rmar10" />
+          <text class="y-rmar14">{{item.ret_address}}-{{item.dep_address}}</text>
+          <image src="../../../images/timeico.png" class="y-rmar14" />
+          <text>{{item.ret_date}}</text>
+        </view>
+      </view>
+      <view class="tils">{{item.brief?'适用展会：'+item.brief:''}}</view>
+      <view class="txt">
+        <view>发布时间：{{item.created_at}}</view>
+        <view class="y-grid y-j-s y-alignc">
+          <view>
+            发布地点：
+            <text>{{item.company_city}}</text>
+          </view>
+          <view class="sp">
+            {{item.is_special?'特价':'价格'}}
+            <text >￥</text>
+            <text>{{item.is_special?item.special_price:item.origin_price}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+
+
+    <view class="under">
+      <view class="y-grid y-alignc block1">
+        <text class="y-f24 y-rmar40">阅读 {{item.views}}</text>
+        <!-- <text class="y-flex1 y-f24">联系 5</text> -->
+        <view class="y-flex1 y-f24"></view>
+        <view class="btn y-rmar20" wx:if="{{item.is_special}}">特价</view>
+        <view class="btn" wx:if="{{item.is_top}}">置顶</view>
+      </view>
+      <view class="y-grid  block2">
+        <text class="y-c33 y-rmar10" wx:if="{{!item.audit_remark}}">已发布</text>
+        <view class="y-c66 y-flex1" wx:if="{{!item.audit_remark&&item.expired_day>0}}">
+          还有
+          <text style="color:#f31d53">{{item.expired_day}}</text>
+          天过期
+        </view>
+        <view class="y-c66 y-flex1" wx:if="{{!item.audit_remark&&item.expired_day<=0}}">
+          已过期
+        </view>
+
+
+        <text class="y-c33 y-rmar10" wx:if="{{item.audit_remark}}">原因：</text>
+        <view class="y-c66 y-flex1" wx:if="{{item.audit_remark}}">
+          <view>{{item.audit_remark}}</view>
+        </view>
+
+        <navigator url="{{'../../release/edit/edit?cid='+item.cid+'&id='+item.id+'&model_name='+item.cmodel}}" class="y-grid y-alignc y-cred y-rmar40">
+          <image src="../../../images/myRelease_icon_edit.png" />
+          <text>编辑</text>
+        </navigator>
+        <view class="y-grid y-alignc y-cred" bindtap="delInfo" data-id="{{item.id}}"  data-index="{{index}}">
+          <image src="../../../images/myRelease_icon_del.png" />
+          <text>删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

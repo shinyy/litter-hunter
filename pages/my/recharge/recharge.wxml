@@ -1,0 +1,23 @@
+<view class="body y-bgw" wx:if="{{!pay_finish}}">
+  <view class="y-lrpad50">
+    <view class="recharge" bindtap="recharge" wx:for="{{list}}" data-coins="{{index}}" data-money="{{index}}">
+      <view>{{index}}金币</view>
+      <view>价格{{item}}元</view>
+    </view>
+  </view>
+</view>
+
+<view class="body y-bgw y-tpad120"  wx:if="{{pay_finish}}">
+  <image src="../../../images/recharge_icon_ok.png" class="recharge_icon" />
+  <view class="txt1">充值成功</view>
+  <view class="txt2">金币+{{coins}}</view>
+  <view class="txt3 y-grid">
+    <text class="y-flex1">充值金额</text>
+    <text>￥{{money}}</text>
+  </view>
+  <!-- <view class="btn">完成</view> -->
+  <navigator class="btn" url="../index/index" wx:if="{{!rechargeFromSp}}">完成</navigator>
+  <navigator class="btn" url="../../release/extension/extension" wx:if="{{rechargeFromSp}}">完成</navigator>
+  
+  
+</view>

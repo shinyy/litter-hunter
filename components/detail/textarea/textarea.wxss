@@ -1,0 +1,3 @@
+/* components/detail/textarea/textarea.wxss */
+@import "../../../app.wxss";
+@import "../../../pages/classification/detail/detail.wxss";

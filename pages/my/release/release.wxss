@@ -1,0 +1,69 @@
+/* pages/my/release/Release.wxss */
+@import '../../home/index/index.wxss';
+page{
+  background: #f5f5f5;
+}
+.tab{
+  height: 90rpx;
+  background: #fff;
+  color: #999;
+  font-size: 30rpx;
+}
+.tab>view{
+  height: 86rpx;
+  line-height: 86rpx;
+  border-bottom: 4rpx solid #fff;
+  text-align: center;
+}
+.tab>.cur{
+  color: #f31d54;
+  border-bottom: 4rpx solid #f31d54;
+}
+.under{
+  padding: 0 40rpx;
+}
+.under .block1{
+color: #666;
+margin-bottom: 20rpx;
+}
+.under .block1 .btn{
+  font-size: 24rpx;
+  border:2rpx solid #666;
+  border-radius: 18rpx;
+  height: 34rpx;
+  width: 66rpx;
+  text-align: center;
+  line-height: 34rpx;
+}
+.under .block2{
+  /* height: 76rpx; */
+  padding: 20rpx 0;
+  border-top:1rpx solid #f5f5f5;
+  font-size: 28rpx;
+}
+.under .block2 image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 8rpx;
+}
+.tabNav-inner .li{
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.wmask{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 290rpx;
+  background: rgba(255, 255, 255, .8);
+  z-index: 99;
+}
+.wmask image{
+  width: 190rpx;
+  height: 190rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -95rpx;
+  right: 30rpx;
+}

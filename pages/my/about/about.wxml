@@ -1,0 +1,9 @@
+<!--pages/my/about/about.wxml-->
+
+<view class="body">
+  <view class="til">关于我们</view>
+  <view class="inner">
+    <import src="../../../wxParse/wxParse.wxml"></import>
+    <template is="wxParse" data="{{wxParseData:t.nodes}}"></template>
+  </view>
+</view>

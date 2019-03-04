@@ -1,0 +1,97 @@
+<view class="title">供应</view>
+<view class="tab-inner">
+  <view class="ul">
+  <navigator url="{{'../exhibition/exhibition?cid='+item.id+'&model_name='+item.model_name+'&title='+item.name}}" wx:for="{{category.supply.category}}">
+      <image src="{{item.ico}}" />
+      <view>{{item.name}}</view>
+    </navigator>
+    <!-- <navigator url="../exhibition/exhibition">
+      <image src="../../../images/navico(12).png" />
+      <view>展会</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(11).png" />
+      <view>展会机票</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(12).png" />
+      <view>展会酒店</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(13).png" />
+      <view>展会团组</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(15).png" />
+      <view>展台搭建</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(9).png" />
+      <view>广告拍摄</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(14).png" />
+      <view>展品运输</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(8).png" />
+      <view>补贴代办</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(12).png" />
+      <view>特价专区</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(10).png" />
+      <view>其他</view>
+    </navigator> -->
+  </view>
+</view>
+<view class="tab-inner">
+<view class="title">需求</view>
+  
+  <view class="ul sp">
+  <navigator url="{{'../exhibition/exhibition?cid='+item.id+'&type=demand'+'&title='+item.name}}" wx:for="{{category.demand.category}}">
+      <image src="{{item.ico}}" />
+      <view>{{item.name}}</view>
+    </navigator>
+    <!-- <navigator>
+      <image src="../../../images/navico(7).png" />
+      <view>找展会</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(3).png" />
+      <view>找机票</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(4).png" />
+      <view>找酒店</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(6).png" />
+      <view>找团组</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(2).png" />
+      <view>找搭建</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(2).png" />
+      <view>找广告</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico.png" />
+      <view>找运输</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(1).png" />
+      <view>找补贴</view>
+    </navigator>
+    <navigator>
+      <image src="../../../images/navico(5).png" />
+      <view>其他</view>
+    </navigator> -->
+  </view>
+</view>
+
+<tabBar currentPage='2'></tabBar>

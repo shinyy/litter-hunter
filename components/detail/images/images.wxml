@@ -1,0 +1,6 @@
+<view class="dl y-bgw">
+  <view class="dt">{{name}}</view>
+  <view class="dd">
+    <image src="{{item}}" wx:for="{{value}}" mode="widthFix"/>
+  </view>
+</view>

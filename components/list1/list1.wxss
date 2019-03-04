@@ -1,0 +1,124 @@
+/* components/list1/list1.wxss */
+@import "../../app.wxss";
+.li{
+  float: left;
+  width: 344rpx;
+  margin-right: 22rpx;
+  margin-bottom: 20rpx;
+}
+.li:nth-child(2n){
+  margin-right: 0
+}
+.img-box{
+  overflow: hidden;
+  width: 100%;
+  height:350rpx;
+  position: relative;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.img-box image{
+  width: 100%;
+  height: 350rpx;
+}
+.mark{
+  width: 120rpx;
+  height: 50rpx;
+  border-bottom-right-radius: 10rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 50rpx;
+  /* background: #f21f5a; */
+  /* background:rgba(243, 29, 84, .7); */
+  background:rgba(7, 111, 238, .7);  
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.img-box .txt{
+  width: 100%;
+  /* height: 80rpx; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 30rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  /* display: table-cell;
+  vertical-align:middle; */
+}
+.info-box{
+  padding: 0 8rpx;
+  border: 1rpx solid #e6e6e6;
+  border-top: 0;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  
+}
+.info-box .til{
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 40rpx;
+  font-weight: bold;
+  padding-top: 11rpx;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.row1 {
+  margin-bottom: 5rpx;
+}
+.row1 text:nth-child(1){
+  font-size: 24rpx;
+}
+.row1 text:nth-child(2){
+  font-size: 24rpx;
+  color: #f31d54;
+}
+.row1 text:nth-child(3){
+  font-size: 34rpx;
+  color: #f31d54;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+.row1>view:nth-child(2){
+  font-size: 24rpx;
+  color: #666;
+}
+.row2{
+  color: #666;
+  font-size: 24rpx;
+  margin-bottom: 5rpx;
+}
+.row3{
+  color: #666;
+  font-size: 24rpx;
+  
+}
+.row3>view:nth-child(2){
+  color: #000;
+}
+.row3>view:nth-child(2) image{
+  width: 12rpx;
+  height: 16rpx;
+  margin-left: 10rpx;
+}
+.t image{
+  width: 34rpx;
+  height: 34rpx;
+}
+.t{
+  /* font-size: 28rpx; */
+  font-size: 23rpx;
+  
+  font-weight: bold;
+}
+.ticket{
+  height: 91rpx;
+}

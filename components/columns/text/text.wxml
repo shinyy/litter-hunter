@@ -1,0 +1,24 @@
+<view class="y-grid y-alignc table ">
+    <view>{{name}}：</view>
+    <!-- <view class="y-flex1">摩洛哥卡萨布兰卡国际食品及酒店用品展览会跟进及邀特级买家、分销商提供高质量</view> -->
+    <view class="y-flex1">
+      <input type="text" 
+             wx:if="{{fieldType=='VARCHAR'}}"  
+             value="{{value}}" 
+             placeholder="{{name=='展会周期'?'如：一年两届':(name=='床位数量'?'如：大床房/双床房':name)}}" 
+             bindinput="input"/>
+      <input type="number" 
+             wx:if="{{fieldType=='INT'}}"
+             value="{{value}}" 
+             placeholder="{{name=='展会周期'?'如：一年两届':(name=='床位数量'?'如：大床房/双床房':name)}}"
+             bindinput="input"/>
+      <input type="digit" wx:if="{{fieldType=='DECIMAL'}}" value="{{value}}" placeholder="请输入{{name}}(仅保留两位小数)" data-type="DECIMAL" bindinput="input"/>   
+
+      <picker mode="date" value="{{date}}" start="{{dateTrue}}" end="2020-12-31" bindchange="bindDateChange" wx:if="{{fieldType=='DATETIME'}}">
+        <view class="y-c77">{{date||'请选择日期'}}</view>
+      </picker>   
+
+
+    </view>  
+    <view >{{remark}}</view>  
+  </view>

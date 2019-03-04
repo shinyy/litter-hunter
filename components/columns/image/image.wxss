@@ -1,0 +1,20 @@
+
+@import "../../../app.wxss";
+@import "../../../pages/release/detail/detail.wxss";
+
+.detailImg{
+  float: left;
+  margin: 0 10rpx 10rpx 0;
+  position: relative;  
+}
+.detailImg .delBtn{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: -7rpx;
+  right: -7rpx;
+}
+.detailImg image{
+  width: 220rpx;
+  height: 220rpx;
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "展会平台",
+  "usingComponents": {
+    "list1": "/components/list1/list1",
+    "tabBar": "/components/tabbar/tabbar"
+    
+  }
+}

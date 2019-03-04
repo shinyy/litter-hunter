@@ -1,0 +1,57 @@
+<view class="addressBlock {{cssType=='sp'?'sp':''}}">
+  <view class="slideup" bindtap="slideup">点击收起</view>
+  <view class="tab y-grid">
+    <view class="{{cityTabIndex==0?'cur':''}}" data-index="0" bindtap="cityTabTap">国内城市</view>
+    <view class="{{cityTabIndex==1?'cur':''}}" data-index="1" bindtap="cityTabTap">国外城市</view>
+  </view>
+  <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scrollbody">
+    <view class="">
+      <!-- <view class="dl y-bmar10">
+        <view class="dt">当前位置</view>
+        <view class="dd y-lpad20 y-f28">定位中…</view>
+      </view> -->
+      <!-- <view class="dl">
+        <view class="dt">热门城市</view>
+        <view class="dd y-lpad20 hot">
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+        </view>
+      </view> -->
+    </view>
+    <view wx:if="{{cityTabIndex==0}}">
+      <view class="dl" id="{{index}}" wx:for="{{cityList.domestic}}">
+        <view class="dt">{{index}}</view>
+        <view class="dd">
+          <view class="li" wx:for="{{item}}" data-id="{{item.id}}" data-city="{{item.name}}" bindtap="selectCity">{{item.name}}</view>
+        </view>
+      </view>
+      <!-- <view class="dl" id="{{index}}" wx:for="{{cityList}}">
+        <view class="dt">{{index}}</view>
+        <view class="dd">
+          <view class="li" 
+                wx:for="{{item}}" 
+                data-id="{{item.id}}" 
+                data-lat="{{item.latitude}}"
+                data-lng="{{item.longitude}}"                
+                data-city="{{item.region_name}}" 
+                bindtap="selectCity">{{item.region_name}}</view>
+        </view>
+      </view> -->
+    </view>
+    <view wx:if="{{cityTabIndex==1}}">
+      <view class="dl" id="{{index}}" wx:for="{{cityList.foreign}}">
+        <view class="dt">{{index}}</view>
+        <view class="dd">
+          <view class="li" wx:for="{{item}}" data-id="{{item.id}}" data-city="{{item.name}}" bindtap="selectCity">{{item.name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="index">
+        <view bindtap='jumpTo' data-opt="{{item}}" wx:for="{{cityIndex}}">{{item}}</view>
+      </view>
+  </scroll-view>
+</view>

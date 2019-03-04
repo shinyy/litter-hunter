@@ -1,0 +1,242 @@
+<!-- 授权弹窗 -->
+     <view class="mask {{showAuthority?'':'hide'}}">
+       <!-- <button open-type='getUserInfo' lang='zh_CN' class="getUserInfoBtn" bindgetuserinfo="getSecret">请授权</button> -->
+
+       <view class="get-inner">
+        <view class="t1">需要您的授权</view>
+        <view class="t2">
+          <view>为了提供更改的服务</view>
+          <view>请在稍后的提示框中点击“允许”</view>
+          
+        </view>
+        <image src="../../../images/get.png"  />
+          <button open-type='getUserInfo' lang='zh_CN' class="getUserInfoBtn" bindgetuserinfo="getSecret">我知道了</button>
+       </view> 
+    </view>   
+  <!-- 授权弹窗 -->
+<!-- <swiper class="y-bmar30" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+  <block wx:for="{{background}}" wx:key="*this">
+    <swiper-item>
+      <view class="swiper-item {{item}}"></view>
+    </swiper-item>
+  </block>
+</swiper> -->
+<image src="{{detail.main_image}}" class="main_image" wx:if="{{type!='demand'}}"/>
+<view class="y-bgw y-lpad20 y-bmar20 y-tpad30" >
+  <view class="h3">{{detail.title}}</view>
+  <view class="h2">{{detail.brief}}</view>  
+  <view class="h4 y-grid "  wx:if="{{type!='demand'}}">
+    <text>浏览{{detail.views}}</text>
+    <!-- <view class="y-grid y-alignc">
+      <image src="../../../images/timeico.png" style="width:22rpx;height:22rpx;"/>
+      <text >时间：{{detail.created_at}}</text>
+    </view> -->
+  </view>
+
+
+  <view class="y-grid y-bgw y-bmar20 y-h180 y-alignc y-lrpad20">
+    <image src="{{detail.member.headimgurl}}" class='headimg'/>
+    <view class="y-flex1">
+      <view class="t1">{{detail.member.true_name}}</view>
+      <!-- <view class="t2">{{detail.member.company_name}}</view>
+      <view class="y-grid y-alignc t3">
+        <image src="../../../images/localico.png" class="localico"/>
+        <text >{{detail.member.company_address}}</text>
+      </view> -->
+      
+    </view>
+    <view class="call" bindtap="checkInfo">马上联系</view>
+  </view>
+
+
+
+<view class="ticket" wx:if="{{detail.model_name=='air_ticket'||detail.model_name=='group'}}">
+    <view class="y-grid  t-tab-inner">
+      <view class="y-flex1 block">
+        <view class="b">
+          <view>出发城市</view>
+          <view >{{detail.dep_address}}</view>
+        </view>
+        <view class="b">
+          <view>去程日期</view>
+          <view>{{detail.dep_date}}</view>
+        </view>
+      </view>
+      <image src="../../../images/return.png" class="arr-return" />
+      <view class="y-flex1 block">
+        <view class="b">
+          <view>到达城市</view>
+          <view >{{detail.ret_address}}</view>
+        </view>
+        <view class="b" wx:if="{{detail.is_return}}">
+          <view>返程日期</view>
+          <view>{{detail.ret_date}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="airport">
+      <view class="dll">
+        <view class="dtt">去程</view>
+        <view class="ddd y-grid">
+          <view class="y-grid y-alignc y-flex1 y-rpad20">
+            <text>出发机场：</text>
+            <view>{{detail.dep_airport}}</view>
+            <!-- <input class="y-flex1" placeholder="请输入机场" bindinput="airportInput" data-type='dep'/> -->
+          </view>
+          <view class="y-grid y-alignc y-flex1 y-rpad20">
+            <text>到达机场：</text>
+            <view>{{detail.dep_arrival_airport}}</view>
+            
+            <!-- <input class="y-flex1" placeholder="请输入机场" bindinput="airportInput" data-type='depA'/> -->
+          </view>
+        </view>
+      </view>
+      <view class="dll" wx:if="{{detail.is_return}}">
+        <view class="dtt">返程</view>
+        <view class="ddd y-grid">
+          <view class="y-grid y-alignc y-flex1 y-rpad20">
+            <text>出发机场：</text>
+            <view>{{detail.ret_airport}}</view>
+            
+            <!-- <input class="y-flex1" placeholder="请输入机场" bindinput="airportInput" data-type='ret'/> -->
+          </view>
+          <view class="y-grid y-alignc y-flex1 y-rpad20">
+            <text>到达机场：</text>
+            <view>{{detail.ret_arrival_airport}}</view>
+            
+            <!-- <input class="y-flex1" placeholder="请输入机场" bindinput="airportInput" data-type='retA'/> -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 若是需求 -->
+  <view class="infoli" wx:if="{{type=='demand'}}">
+    <view class="li y-grid y-alignc">
+      <view>发布时间：</view>
+      <view class="y-flex1">{{detail.created_at}}</view>
+    </view>
+    <view class="li y-grid y-alignc">
+      <view>行业：</view>
+      <view class="y-flex1">{{detail.industry}}</view>
+    </view>
+  </view>
+
+  <!-- 若非需求 -->
+  <view class="infoli" wx:if="{{detail.model_name!='air_ticket'&&detail.model_name!='group'&&type!='demand'}}">
+    <view class="li y-grid y-alignc">
+      <view>发布时间：</view>
+      <view class="y-flex1 y-c99">{{detail.created_at}}</view>
+    </view>
+    <view class="li y-grid y-alignc">
+      <view>展会时间：</view>
+      <view class="y-flex1 y-c99">{{detail.date}}</view>
+    </view>
+    <view class="li y-grid y-alignc">
+      <view>展会行业：</view>
+      <view class="y-flex1 y-c99">{{detail.industry}}</view>
+    </view>
+  </view>
+  
+  <view class="infoli" wx:if="{{detail.model_name=='air_ticket'||detail.model_name=='group'&&type!='demand'}}">
+      <view class="li y-grid y-alignc">
+      <view>发布时间：</view>
+      <view class="y-flex1">{{detail.created_at}}</view>
+    </view>
+      <view class="li y-grid y-alignc">
+        <view>行业：</view>
+        <view class="y-flex1">{{detail.industry}}</view>
+      </view>
+      <view class="li y-grid y-alignc">
+        <view>活动时间：</view>
+        <view class="y-flex1">{{detail.date}}</view>
+      </view>
+      <!-- <view class="li y-grid y-alignc">
+        <view>出发地点：</view>
+        <view class="y-flex1">{{detail.dep_address}}</view>
+      </view>
+      <view class="li y-grid y-alignc">
+        <view>到达地点：</view>
+        <view class="y-flex1">{{detail.ret_address}}</view>
+      </view>
+      <view class="li y-grid y-alignc">
+        <view>出发机场：</view>
+        <view class="y-flex1">{{detail.dep_airport}}</view>
+      </view>
+      <view class="li y-grid y-alignc">
+        <view>到达机场：</view>
+        <view class="y-flex1">{{detail.dep_arrival_airport}}</view>
+      </view>
+      <view class="li y-grid y-alignc">
+        <view>出发时间：</view>
+        <view class="y-flex1">{{detail.dep_date}}</view>
+      </view>
+
+
+      <view class="li y-grid y-alignc" wx:if="{{detail.is_return}}">
+        <view>返程机场：</view>
+        <view class="y-flex1">{{detail.ret_airport}}</view>
+      </view>
+      <view class="li y-grid y-alignc" wx:if="{{detail.is_return}}">
+        <view>到达机场：</view>
+        <view class="y-flex1">{{detail.ret_arrival_airport}}</view>
+      </view>
+      <view class="li y-grid y-alignc" wx:if="{{detail.is_return}}">
+        <view>返程时间：</view>
+        <view class="y-flex1">{{detail.ret_date}}</view>
+      </view> -->
+    </view>
+
+
+</view>
+
+
+
+
+<view class="y-bgw">
+  <view wx:for="{{detail.custom}}">
+    <Textc wx:if="{{item.type=='Text'||item.type=='Date'}}" name="{{item.name}}" value="{{item.value}}"></Textc>
+    <Textareac wx:if="{{item.type=='Textarea'}}" name="{{item.name}}" value="{{item.value}}"></Textareac>
+    <Imagec wx:if="{{item.type=='Image'}}" name="{{item.name}}" value="{{item.value}}"></Imagec>
+    <Imagesc wx:if="{{item.type=='Images'}}" name="{{item.name}}" value="{{item.value}}"></Imagesc>  
+  </view>
+  
+</view>
+
+
+<!-- <view class="y-grid y-bgw y-bmar20 y-h180 y-alignc y-lrpad20">
+  <image src="../../../images/banner.png" class='headimg'/>
+  <view class="y-flex1">
+    <view class="t1">李先生</view>
+    <view class="t2">世博威国际展览公司</view>
+    <view class="y-grid y-alignc t3">
+      <image src="../../../images/localico.png" class="localico"/>
+      <text >东莞</text>
+      <text class="y-c66">距离20公里</text>
+    </view>
+    
+  </view>
+  <view class="call">马上联系</view>
+</view>
+<view class="dl y-bgw">
+  <view class="dt">展会简介</view>
+  <view class="dd">五大迪拜建材五大行业展THE BIG 5始办于1980年，是中东地区具影响力且是大型的建筑、建材,能源及服务类展览会。中东地区建筑市场的火暴和持续发展，带动了对建筑设备、材料以及建材装饰装修产品的强烈需求，更吸引了全球的关注。主要得益于阿联酋、沙特阿拉伯以及卡塔尔等国不断增长的经济和人口。各国投入数亿百亿计的美元用于基础设施建设和升级。</view>
+</view>
+<view class="dl y-bgw">
+  <view class="dt">补贴详情</view>
+  <view class="dd">最大优惠，前100名即可优惠参展，五大行业展THE BIG 5始办于1980年，是中东地区具影响能源及服务类展览会动了对建求，更吸引了全球的关注。主要得益于阿联酋、沙特阿拉伯以及卡塔尔等国不断增长的经济和人口。各国投入数亿百亿计的美元用于基础设施建设和升级。</view>
+</view>
+<view class="dl y-bgw">
+  <view class="dt">展会详情</view>
+  <view class="dd"></view>
+</view> -->
+
+
+<view class="bottom-row y-grid y-alignc y-bgw">
+  <image src="../../../images/share.png" bindtap='share'/>  
+  <button open-type='share' class="shareBtn">
+         <image src="../../../images/share.png" bindtap='share'/> 
+        </button>
+  <view class="y-flex1" bindtap="checkInfo">马上联系</view>
+</view>

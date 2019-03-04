@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/index/index",
+    "pages/release/detail/detail",
+    "pages/release/extension/extension",
+    "pages/my/register/register",
+    "pages/classification/index/index",
+    "pages/release/index/index",
+    "pages/release/edit/edit",
+    "pages/my/release/release",
+    "pages/my/edit/register",
+    "pages/classification/exhibition/exhibition",
+    "pages/classification/detail/detail",
+    "pages/classification/search/exhibition",
+    "pages/my/register-finish/register-finish",
+    "pages/message/index",
+    "pages/my/index/index",
+    "pages/my/detail/detail",
+    "pages/home/address/address",
+    "pages/release/demand/detail",
+    "pages/my/about/about",
+    "pages/classification/demand/demand",
+    "pages/my/recharge/recharge",
+    "pages/my/feedback/feedback",
+    "pages/release/success/success",
+    "pages/home/special/special",
+    "pages/release/industry/industry",
+    "pages/logs/logs",
+    "components/tabbar/tabbar",
+    "components/list1/list1",
+    "components/columns/text/text",
+    "components/columns/textarea/textarea",
+    "components/columns/image/image",
+    "components/columns/images/images",
+    "components/columns/switch/switch",
+    "components/city/city",
+    "components/detail/text/text",
+    "components/detail/textarea/textarea",
+    "components/detail/image/image",
+    "components/detail/images/images"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  }
+}

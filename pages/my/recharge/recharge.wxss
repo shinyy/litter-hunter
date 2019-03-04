@@ -1,0 +1,74 @@
+/* pages/my/recharge/recharge.wxss */
+page{
+  padding-top: 20rpx;
+  padding-bottom: 0;
+}
+.body{
+  padding-top: 40rpx;
+  /* height: calc(100vh - 20rpx); */
+  box-sizing: border-box;
+  overflow: hidden
+}
+.recharge{
+  width: 310rpx;
+  height: 168rpx;
+  border:1rpx solid #f31d53;
+  border-radius: 20rpx;
+  color: #f31d53;
+  text-align: center;
+  float: left;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+  padding-top: 40rpx;
+}
+.recharge:nth-child(2n-1){
+  margin-right: 30rpx;
+}
+.recharge>view:nth-child(1){
+  font-size: 40rpx;
+  color: #f31d53;
+  margin-bottom: 5rpx;
+}
+.recharge>view:nth-child(2){
+  font-size: 28rpx;
+  color: #f98ea9;
+}
+.recharge_icon{
+  display: block;
+  margin: 0 auto;
+  width: 149rpx;
+  height: 137rpx;
+  margin-bottom: 16rpx;
+}
+.txt1{
+  font-size: 32rpx;
+  color: #f31d53;
+  margin-bottom: 20rpx;
+  text-align: center
+}
+.txt2{
+  font-size: 60rpx;
+  color: #333;
+  text-align: center;
+  /* font-weight: bold; */
+  margin-bottom: 100rpx;
+}
+.txt3{
+  width: 690rpx;
+  margin: 0 auto;
+  padding: 20rpx  40rpx 60rpx 40rpx;
+  color: #666;
+  font-size: 28rpx;
+  border-top: 1rpx solid #f5f5f5;
+}
+.btn{
+  width: 640rpx;
+  height: 90rpx;
+  color: #fff;
+  border-radius: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  background: #f31d53;
+  margin:0 auto
+}

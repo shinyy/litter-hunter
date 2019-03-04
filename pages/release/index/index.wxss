@@ -1,0 +1,23 @@
+@import '../../home/index/index.wxss';
+
+.statement{
+  width: 710rpx;
+  margin: 0 auto;
+  padding: 30rpx 45rpx 38rpx 38rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.statement .til{
+  font-size: 32rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.statement .t{
+  color: #666;
+  font-size: 28rpx;
+  line-height: 50rpx;
+}
+.statement .t view{
+  text-indent: 2em;
+}

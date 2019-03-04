@@ -1,0 +1,70 @@
+<view class="tabNav y-grid">
+  <view class="y-flex1 cur">全部</view>
+  <view class="y-flex1">展会</view>
+  <view class="y-flex1">展会机票</view>
+  <view class="y-flex1">展会酒店</view>
+  <view class="y-flex1">展会团组</view>
+</view>
+<view class="tabNav-inner ">
+  <navigator class="li y-grid y-pad20">
+    <view class="img-box">
+      <image src="../../../images/pd.png" />
+      <view class="mark">展会</view>
+    </view>
+    <view class="t y-flex1">
+      <view class="til">AIFE 2019亚洲(北京)国际食品饮料博览会</view>
+      <view class="tils">由北京世博威国际展览有限公司独家承办将于2019年4月17日-19日在北京·中...</view>
+      <view class="txt">
+        <view>发布时间：2018/11/20</view>
+        <view class="y-grid y-j-s y-alignc">
+          <view>
+            发布地点：
+            <text>美国旧金山</text>
+          </view>
+          <view class="sp">
+            特价
+            <text >￥</text>
+            <text>36000</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+  <navigator class="li y-grid y-pad20">
+    <view class="img-box">
+      <image src="../../../images/pd.png" />
+      <view class="mark">展会</view>
+    </view>
+    <view class="t y-flex1">
+      <view class="ticket y-bmar10">
+        <view class="t y-grid y-alignc y-bmar10">
+          <image src="../../../images/wang.png" class="y-rmar10" />
+          <text class="y-rmar14">上海-柏林</text>
+          <image src="../../../images/timeico.png" class="y-rmar14" />
+          <text>11/25</text>
+        </view>
+        <view class="t y-grid y-alignc">
+          <image src="../../../images/fan.png" class="y-rmar10" />
+          <text class="y-rmar14">柏林-上海</text>
+          <image src="../../../images/timeico.png" class="y-rmar14" />
+          <text>11/25</text>
+        </view>
+      </view>
+      <view class="tils">由北京世博威国际展览有限公司独家承办将于2019年4月17日-19日在北京·中...</view>
+      <view class="txt">
+        <view>发布时间：2018/11/20</view>
+        <view class="y-grid y-j-s y-alignc">
+          <view>
+            发布地点：
+            <text>美国旧金山</text>
+          </view>
+          <view class="sp">
+            特价
+            <text >￥</text>
+            <text>36000</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>

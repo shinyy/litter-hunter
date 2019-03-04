@@ -1,0 +1,45 @@
+/* pages/my/register-finish/register-finish.wxss */
+page{
+  padding-top: 20rpx;
+  padding-bottom: 0;
+}
+.body{
+  padding-top: 128rpx;
+  height: calc(100vh - 20rpx);
+  box-sizing: border-box;
+}
+.ico{
+  display: block;
+  width: 156rpx;
+  height: 156rpx;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+}
+.txt1{
+  font-size: 40rpx;
+  color: #333;
+  margin-bottom: 210rpx;
+  text-align: center;
+}
+.code-box{
+  width: 390rpx;
+  height: 390rpx;
+  border: 2rpx solid #eee;
+  border-radius: 16rpx;
+  margin: 0 auto;
+  padding: 25rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.code-box image{
+  width: 338rpx;
+  height: 338rpx;
+}
+.txt2{
+  width: 390rpx;
+  margin: 0 auto;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 40rpx;
+  text-align: center;
+}

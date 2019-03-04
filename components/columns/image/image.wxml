@@ -1,0 +1,13 @@
+<view class="y-f30 y-l70 y-tpad20">{{name}}</view>
+  <view class="upliad-row  y-bmar20">
+    <view class="img-list fl">
+      <!-- <image class="detailImg" wx:for="{{headImg}}" src="{{headImg[index]}}" data-index="{{index}}" bindtap='delImgSp' /> -->
+      <view class="detailImg" wx:for="{{headImg}}">
+        <image  src="{{headImg[index]}}" data-index="{{index}}"/>
+        <image class="delBtn" src="../../../images/del.png" data-index="{{index}}" bindtap='delImgSp'/>
+      </view>
+    </view>
+    <!-- <image src="../../../images/filebtn.png"  bindtap="chooseImgSp" class="filebtn" wx:if="{{headImg.length==0}}"/> -->
+    <image src="../../../images/filebtn.png"  bindtap="chooseImgSp" class="filebtn" wx:if="{{headImg.length==0}}"/>
+    
+  </view>

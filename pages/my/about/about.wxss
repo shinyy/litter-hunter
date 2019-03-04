@@ -1,0 +1,18 @@
+/* pages/my/about/about.wxss */
+page{
+  background: #fff;
+  box-sizing: border-box;
+}
+.body{
+  background: #fff;
+  padding: 0 20rpx;
+  word-break: break-all;
+}
+.inner>view{
+  width: 100% !important;
+  text-indent: 50rpx;
+}
+.til{
+  margin-bottom: 20rpx;
+  text-align: center;
+}

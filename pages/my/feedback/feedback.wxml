@@ -1,0 +1,4 @@
+<textarea placeholder="请写下您宝贵的建议…" bindinput="descriptionInput"></textarea>
+<view class="submit" bindtap="submit">
+  提交
+</view>

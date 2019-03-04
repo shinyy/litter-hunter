@@ -1,0 +1,27 @@
+<view class="tabBar y-grid">
+  <view class="y-flex1 {{currentPage==1?'cur':''}}" bindtap="tabPage" data-url="/pages/home/index/index">
+    <image src="../../images/home.png" wx:if="{{currentPage!=1}}"/>
+    <image src="../../images/home1.png" wx:if="{{currentPage==1}}"/>
+    <view>首页</view>
+  </view>
+  <view class="y-flex1 {{currentPage==2?'cur':''}}" bindtap="tabPage" data-url="/pages/classification/index/index">
+    <image src="../../images/fl.png" wx:if="{{currentPage!=2}}"/>
+    <image src="../../images/fl1.png" wx:if="{{currentPage==2}}"/>
+    <view>分类</view>
+  </view>
+  <view class="y-flex1 {{currentPage==5?'cur':''}}"  bindtap="tabPage" data-url="/pages/release/index/index">
+    <image src="../../images/fabu.png" class="sp" wx:if="{{currentPage!=5}}"/>
+    <image src="../../images/fabu2.png" class="sp" wx:if="{{currentPage==5}}"/>
+    <view>发布</view>
+  </view>
+  <view class="y-flex1 {{currentPage==3?'cur':''}}" bindtap="tabPage" data-url="/pages/message/index" >
+    <image src="../../images/msn.png" wx:if="{{currentPage!=3}}"/>
+    <image src="../../images/msn1.png" wx:if="{{currentPage==3}}"/>
+    <view>消息</view>
+  </view>
+  <view class="y-flex1 {{currentPage==4?'cur':''}}"  bindtap="tabPage"  data-url="/pages/my/index/index">
+    <image src="../../images/my.png" wx:if="{{currentPage!=4}}"/>
+    <image src="../../images/my1.png" wx:if="{{currentPage==4}}"/>
+    <view>我的</view>
+  </view>
+</view>

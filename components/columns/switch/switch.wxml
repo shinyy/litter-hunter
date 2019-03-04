@@ -1,0 +1,6 @@
+<view class="y-grid y-alignc table ">
+    <view>{{name}}：</view>
+    <view class="y-flex1">
+      <switch bindchange="switch2Change"/>
+    </view>    
+  </view>

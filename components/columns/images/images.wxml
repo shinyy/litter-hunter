@@ -1,0 +1,12 @@
+<!-- <view class="y-f30 y-l70 y-tpad20">请上传主图<text class="y-c99 y-f24">(最多上传9张)</text></view> -->
+<view class="y-f30 y-l70 y-tpad20">{{name}}<text class="y-c99 y-f24">(最多上传9张)</text></view>
+  <view class="upliad-row  y-bmar20">
+    <view class="img-list fl">
+      <!-- <image class="detailImg" wx:for="{{img}}" src="{{img[index]}}" data-index="{{index}}" bindtap='delImg' /> -->
+      <view class="detailImg" wx:for="{{img}}">
+        <image  src="{{img[index]}}" data-index="{{index}}"/>
+        <image class="delBtn" src="../../../images/del.png" data-index="{{index}}" bindtap='delImg'/>
+      </view>
+    </view>
+    <image src="../../../images/filebtn.png"  bindtap="chooseImg" class="filebtn" wx:if="{{img.length!=9}}"/>
+  </view>

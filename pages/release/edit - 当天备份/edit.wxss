@@ -1,0 +1,164 @@
+/* pages/release/detail/detail.wxss */
+@import '../../classification/exhibition/exhibition.wxss';
+page{
+  padding-top: 20rpx;
+  padding-bottom: 0;
+}
+.arr-right {
+  width:10rpx;
+  height:17rpx;
+  }
+.table>view:nth-child(1){
+  width: 150rpx;
+  color: #666;
+}
+.table{
+  border-bottom:1rpx solid #e6e6e6;
+  padding: 28rpx 0;
+  padding-right: 30rpx;
+}
+.table.sp{
+  padding: 0;
+  height: 90rpx;
+}
+.dt{
+  font-size: 30rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color:#000;
+padding-left:0;
+  background: #fff;
+}
+.dd{
+  border: 1rpx solid #e6e6e6;
+  border-radius: 5rpx;
+}
+.dd textarea{
+  padding: 20rpx; 
+  width: 100%;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+}
+.font-num{
+  font-size: 20rpx;
+  color: #666;
+  padding: 10rpx;
+  text-align: right;
+}
+.other{
+  font-size: 24rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 150rpx;
+}
+.other navigator{
+  color: #f31d53;
+}
+.next-step{
+  height: 100rpx;
+  border-top: 1rpx solid #e6e6e6;
+  background: #fff;
+  line-height: 100rpx;
+  text-align: center;
+  color: #f31d53;
+  font-size: 30rpx;
+}
+.upliad-row{
+  overflow: hidden;
+  padding-top: 10rpx;
+}
+.filebtn{
+  width:220rpx;
+  height:220rpx;
+  float:left
+}
+.detailImg{
+  width:220rpx;
+  height:220rpx;
+  margin-right:10rpx
+}
+
+/* 行业弹出页 */
+.left-part{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 330rpx;
+  height: 100%;
+  z-index: 999;
+  background: #f5f5f5;
+}
+.left-part>view,.left-part .list{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  padding-left: 47rpx;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.left-part>.cur,.left-part .list.cur{
+  background: #fff;
+}
+.right-part{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 390rpx;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.right-part>view,.right-part .list{
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+}
+.right-part>.cur,.right-part .list.cur{
+  color: #f31d53;
+}
+.industryBlock{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* 日期弹出 */
+.maskBlock{
+  top: 0;
+  height: 100%;
+}
+.maskBlock .dd{
+  border: 0;
+  border-radius: 0;
+}
+
+/* 新增机票 */
+.t-tab-inner{
+  margin-bottom: 0
+}
+.dll{
+  padding-top: 20rpx;
+}
+.dtt{
+  font-size: 30rpx;
+}
+.ddd{
+  font-size: 24rpx;
+}
+.ddd text{
+  color: #999;
+}
+.ddd input{
+  border-bottom: 1rpx solid #f0f0f0;
+}
+.ticket{
+  padding-bottom: 23rpx;
+  /* border-bottom:1rpx solid #e6e6e6; */
+}

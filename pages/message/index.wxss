@@ -1,0 +1,30 @@
+.li{
+  width: 710rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.li image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+}
+.til{
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+}
+.inner{
+  font-size: 28rpx;
+  color: #999;
+  line-height: 40rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  
+}
+.dete{
+  font-size: 20rpx;
+  color: #999;
+}

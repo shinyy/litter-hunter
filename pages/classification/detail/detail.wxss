@@ -1,0 +1,134 @@
+/* pages/classification/detail/detail.wxss */
+@import '../../home/index/index.wxss';
+@import '../../release/detail/detail.wxss';
+page{
+  padding: 0;
+  padding-bottom: 100rpx;
+}
+.main_image{
+  height: 350rpx;
+  margin: 0;
+  display: block;
+}
+.h3{
+  font-size: 32rpx;
+  font-weight: bold;
+  
+}
+.h2{
+  font-size: 24rpx;
+  color: #666;
+  padding-top: 10rpx;
+}
+.h4{
+  height:70rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.infoli {
+}
+.infoli .li{
+  border-top: 1rpx solid #e6e6e6;
+  border-bottom: 0;
+  height: 80rpx;
+  font-size: 28rpx;
+  padding-right: 30rpx;
+  padding-left: 0
+}
+.infoli .li>view:nth-child(1){
+  color: #666;
+}
+.infoli .li .sp{
+  color: #f31d53;
+}
+.dl{
+  padding: 34rpx 20rpx 30rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+.dt{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.dd{
+  font-size: 28rpx;
+  color: #666;
+  line-height: 48rpx;
+  border:0;
+}
+.localico{
+  width: 12rpx;
+  height: 16rpx;
+  margin-right: 13rpx;
+}
+.headimg{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.t1{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 5rpx;
+}
+.t2{
+  font-size: 24rpx;
+  margin-bottom: 5rpx;
+  
+}
+.t3{
+  font-size: 24rpx;
+}
+.t3>text:nth-child(2){
+  color: #000;
+  margin-right: 24rpx;
+}
+.call{
+  width: 150rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  border-radius: 3rpx;
+  border:1rpx solid #e6e6e6;
+}
+.bottom-row{
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.bottom-row>image{
+  width: 46rpx;
+  height: 44rpx;
+  margin: 53rpx;
+}
+.bottom-row view{
+  background: #f31d53;
+  height: 100rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 32rpx;
+}
+.shareBtn{
+  width: 150rpx;
+  height: 100rpx;
+  background: #fff;
+  border: 0;
+  border-color: #fff;
+  border-radius: 0;
+
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.shareBtn image{
+  width: 46rpx;
+  height: 44rpx;
+  position: relative;
+  top: 10rpx;
+}

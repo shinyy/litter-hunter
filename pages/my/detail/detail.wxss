@@ -1,0 +1,54 @@
+/* pages/my/detail/detail.wxss */
+page{
+  padding-top: 20rpx;
+  padding-bottom: 0;
+}
+.body{
+  min-height: calc(100vh - 20rpx);
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.li{
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.til{
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.txt{
+  font-size: 26rpx;
+  color: #666;
+  line-height: 38rpx;
+}
+.b{
+  color: #09bb07;
+  font-size: 30rpx;
+}
+.b.sp{
+  color: #f31d53
+}
+.bg{
+  width: 690rpx;
+  background: #eee;
+  border-radius: 8rpx;
+  color: #666;
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+.mark{
+  width: 96rpx;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 20rpx;
+  color: #fff;
+  border-bottom-right-radius: 8rpx;
+  background: #f31d53;
+  margin-right: 20rpx;
+}
+.bg>view:nth-child(2){
+  font-size: 24rpx;
+  line-height: 40rpx;
+  padding-right: 35rpx;
+}

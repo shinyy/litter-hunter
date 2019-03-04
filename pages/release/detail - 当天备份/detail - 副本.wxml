@@ -1,0 +1,127 @@
+<view class="y-bgw y-lpad20 y-bmar20">
+  <view class="y-h80 y-grid y-alignc y-j-s y-f28 y-rpad30" style="border-bottom:1rpx solid #e6e6e6;">
+    <view class="y-c66 y-flex1">行业</view>
+    <!-- <picker bindchange="industryPickerChange" value="{{index}}" range="{{industry}}">
+      <view class="picker y-rmar10">{{industryIndex==''?'请选择行业':industry[industryIndex]}}</view>
+     </picker> -->
+    <navigator class="y-rmar10" url="../industry/industry">请选择行业</navigator>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+  <view class="y-h80 y-grid y-alignc y-j-s y-f28 y-rpad30" style="border-bottom:1rpx solid #e6e6e6;">
+    <view class="y-c66 y-flex1">国家/城市</view>
+    <picker bindchange="industryPickerChange" value="{{index}}" range="{{industry}}">
+      <view class="picker y-rmar10">{{industryIndex==''?'请选择城市':industry[industryIndex]}}</view>
+    </picker>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+   <view class="y-h80 y-grid y-alignc y-j-s y-f28 y-rpad30">
+    <view class="y-c66 y-flex1">时间</view>
+    <picker bindchange="industryPickerChange" value="{{index}}" range="{{industry}}">
+      <view class="picker y-rmar10">{{industryIndex==''?'请选择时间':industry[industryIndex]}}</view>
+    </picker>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+</view>
+<view class="y-bgw y-lpad20 y-f28 y-bmar20">
+  <view class="y-grid y-alignc table ">
+    <view>展会名称：</view>
+    <!-- <view class="y-flex1">摩洛哥卡萨布兰卡国际食品及酒店用品展览会跟进及邀特级买家、分销商提供高质量</view> -->
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入展会名称"/>
+    </view>    
+  </view>
+  <!-- <view class="y-grid table ">
+    <view>时间：</view>
+    <view class="y-flex1">2018/11/22 - 2018/11/26</view>
+  </view> -->
+  <view class="y-grid y-alignc table ">
+    <view>地址：</view>
+    <view class="y-flex1"><input type="text" placeholder="请输入地址"/></view>
+  </view>
+  <view class="y-grid y-alignc table ">
+    <view>展馆：</view>
+    <view class="y-flex1"><input type="text" placeholder="请输入展馆名称"/></view>
+  </view>
+  <view class="y-grid y-alignc table ">
+    <view>展馆周期：</view>
+    <view class="y-flex1"><input type="text" placeholder="请输入展馆周期"/></view>
+  </view>
+  <view class="y-grid y-alignc table ">
+    <view>价格：</view>
+    <view class="y-flex1"><input type="text" placeholder="请输入价格"/></view>
+  </view>
+  <view class="y-grid y-alignc table ">
+    <view>展馆数量：</view>
+    <view class="y-flex1"><input type="text" placeholder="请输入展馆数量"/></view>
+  </view>
+</view>
+<view class="y-bgw y-lrpad20 y-bpad30 y-bmar20">
+  <view class="dl">
+    <view class="dt">展会亮点</view>
+    <view class="dd">
+      <textarea class="y-h140" placeholder="请输入展会亮点(简明概括展会亮点)"></textarea>
+      <view class="font-num">0/25</view>
+    </view>
+  </view>
+  <view class="dl">
+    <view class="dt">展会简介</view>
+    <view class="dd">
+      <textarea class="y-h240" placeholder="请输入展会简介(用几句话简单描述)"></textarea>
+      <view class="font-num">0/100</view>
+    </view>
+  </view>
+  <view class="dl">
+    <view class="dt">展会补贴</view>
+    <view class="dd">
+      <textarea class="y-h240" placeholder="请输入补贴情况（若有）"></textarea>
+      <view class="font-num">0/100</view>
+    </view>
+  </view>
+</view>
+<view class="y-bgw y-bmar20 y-lpad20 y-bpad30">
+  <view class="y-f30 y-l70">请上传主图</view>
+  <view class="upliad-row  y-bmar20">
+    <view class="img-list fl">
+      <image class="detailImg" wx:for="{{headImg}}" src="{{headImg[index]}}" data-index="{{index}}" bindtap='delImgSp' />
+    </view>
+    <image src="../../../images/filebtn.png"  bindtap="chooseImgSp" class="filebtn" wx:if="{{headImg.length==0}}"/>
+  </view>
+  <view class="y-f30 y-l70">请上传主图<text class="y-c99 y-f24">(最多上传9张)</text></view>
+  <view class="upliad-row  y-bmar20">
+    <view class="img-list fl">
+      <image class="detailImg" wx:for="{{img}}" src="{{img[index]}}" data-index="{{index}}" bindtap='delImg' />
+    </view>
+    <image src="../../../images/filebtn.png"  bindtap="chooseImg" class="filebtn" wx:if="{{img.length!=9}}"/>
+  </view>
+</view>
+<view class="y-bgw y-lpad20 y-f28 y-bmar20">
+  <view class="y-grid table y-alignc sp">
+    <view>公司名称：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入公司名称" />
+    </view>
+  </view>
+  <view class="y-grid table y-alignc sp">
+    <view>联系人：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入联系人" />
+    </view>
+  </view>
+  <view class="y-grid table y-alignc sp">
+    <view>联系方式：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入联系电话" />
+    </view>
+  </view>
+  <view class="y-grid table y-alignc sp">
+    <view>公司地址：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入公司地址" />
+    </view>
+  </view>
+</view>
+<view class="other">
+  <view>此处发布者信息同账号注册信息,如有更新,请到个人中心更新修改.</view>
+  <navigator>前往修改></navigator>
+</view>
+<navigator class="next-step" url="../extension/extension">下一步</navigator>

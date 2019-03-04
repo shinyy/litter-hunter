@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "搜索",
+  "usingComponents": {
+    "tabBar": "/components/tabbar/tabbar",
+    "City":"/components/city/city"
+   },
+  "enablePullDownRefresh": false
+   
+}

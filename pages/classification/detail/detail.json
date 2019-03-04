@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "Textc": "/components/detail/text/text",
+    "Textareac": "/components/detail/textarea/textarea",
+    "Imagec": "/components/detail/image/image",
+    "Imagesc": "/components/detail/images/images"
+    
+  }  
+}

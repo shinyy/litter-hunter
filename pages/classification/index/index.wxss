@@ -1,0 +1,13 @@
+@import '../../home/index/index.wxss';
+
+.tab-inner .ul{
+  background: #fff;
+  padding-top: 50rpx;
+}
+.title{
+  color:#666;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  padding-left: 20rpx;
+}

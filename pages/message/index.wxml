@@ -1,0 +1,18 @@
+<!-- <view class="li y-bgw">
+  <view class="til y-grid y-alignc">
+    <image src="../../images/ico.jpg" />
+    <view>2019元旦最新展会活动</view>
+  </view>
+  <view class="inner">尊敬的用户，您好！您有一个最新展会，您可在我平台查看最新的展会活动消息。感谢您对我们的关注和支持！</view>
+  <view class="dete">2018-05-08 21:08:58</view>
+</view> -->
+
+<view class="li y-bgw" wx:for="{{list.data}}">
+  <view class="til y-grid y-alignc">
+    <image src="../../images/ico.jpg" />
+    <view>{{item.title}}</view>
+  </view>
+  <view class="inner">{{item.description}}</view>
+  <view class="dete">{{item.created_at}}</view>
+</view>
+<tabBar currentPage='3'></tabBar>

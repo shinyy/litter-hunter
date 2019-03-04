@@ -1,0 +1,121 @@
+<view class="ul y-bgw y-bmar20">
+  <view class="li y-grid y-alignc">
+    <input type="text" placeholder="请输入真实姓名" bindinput="inputName" value="{{info.true_name}}"/>
+  </view>
+   <view class="li y-grid y-alignc">
+    <input placeholder="请输入身份证号" bindinput="inputCard"  maxlength="18" value="{{info.id_card}}"/>
+  </view>
+  <view class="li y-grid y-alignc">
+    <text class="til">+86</text>
+    <input placeholder="请输入手机号" bindinput="inputMobile" type="number" maxlength="11" value="{{info.mobile}}"/>
+  </view>
+  <view class="li y-grid y-alignc" wx:if="{{!info.mobile||changeMobile}}">
+    <text class="til">验证码</text>
+    <input type="text" placeholder="请输入验证码" bindinput="inputCode"/>
+    <view class="getCode" wx:if="{{mobile.length!=11}}">获取验证码</view>
+    <view class="getCode" style="background:#f31d53" bindtap="getCode" wx:if="{{mobile.length==11&&!showTimer}}">获取验证码</view>
+    <view class="getCode" style="background:#f31d53" wx:if="{{mobile.length==11&&showTimer}}">{{timer}}秒后重试</view>
+  </view>
+</view>
+
+
+<view class="ul y-bgw y-bmar20">
+  <view class="li y-grid y-alignc">
+    <input type="text" placeholder="请输入真实公司名称" bindinput="inputCompanyName" value="{{info.company_name}}"/>
+  </view>
+  <!-- <view class="li y-grid y-alignc">
+    <view class="til y-flex1 ">公司地址</view>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view> -->
+  <view class="li y-grid y-alignc">
+    <view class="til y-flex1 ">所在地区</view>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <view class="picker y-rmar10">
+      {{region[0]}}{{region[1]}}{{region[2]}}
+    </view>
+  </picker>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+  <view class="li y-grid y-alignc">
+    <text class="til">详细地址</text>
+    <input type="text" placeholder="请输入详细地址" bindinput="inputAddress" value="{{info.company_address}}"/>
+  </view>
+  <view class="li y-grid y-alignc"  bindtap="industryBlockShow">
+    <view class="til y-flex1 ">所属行业</view>
+    <!-- <view class="y-rmar10">{{industryCur||info.hy_name||'请选择'}}</view> -->
+    <view class="y-rmar10">{{hyName||info.hy_name||'请选择'}}</view>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+  <view class="li y-grid y-alignc">
+    <view class="til y-flex1 ">接收同行业特价信息</view>
+    <switch  bindchange="switchChange" color='#f31d53' checked="{{info.is_receive==1}}"/>
+  </view>
+  
+</view>
+
+ <view class="submit-btn"  bindtap="update" wx:if="{{noEmpty}}">完成</view>
+  <view class="submit-btn" style="background:#f19cb1" wx:if="{{!noEmpty}}">完成</view>
+<!-- <view class="submit-btn"  bindtap="update" >完成</view> -->
+
+<!-- <view wx:if="{{!hasInfo}}">
+  <view class="submit-btn"  bindtap="update" wx:if="{{noEmpty||hasInfo}}">完成</view>
+  <view class="submit-btn" style="background:#f19cb1" wx:if="{{!noEmpty&&!hasInfo}}">完成</view>
+</view>
+<view wx:if="{{hasInfo}}">
+  <view class="submit-btn"  bindtap="update" wx:if="{{noEmpty}}">完成</view>
+  <view class="submit-btn" style="background:#f19cb1" wx:if="{{!noEmpty}}">完成</view>
+</view> -->
+
+<!-- 地址弹窗 -->
+<!-- <view class="addressBlock ul y-bgw">
+   <view class="li y-grid y-alignc">
+    <view class="til y-flex1 ">所在地区</view>
+    <view class="y-rmar10">{{industryCur||'请选择'}}</view>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+  <view class="li y-grid y-alignc">
+    <text class="til">详细地址</text>
+    <input type="text" placeholder="请输入详细地址" bindinput="inputMobile"/>
+  </view>
+</view> -->
+<!-- 行业弹出页 -->
+<view class="industryBlock" wx:if="{{industryBlock}}">
+  <view class="slideup" bindtap="slideup">点击收起</view>
+  <scroll-view scroll-y="true" class="left-part">
+    <view wx:for="{{industry}}" data-id="{{index}}" class="list {{index==industryClassIndex?'cur':''}}" bindtap="industryClass">
+      {{item.title}}
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="right-part y-bgw">
+    <!-- <view wx:for="{{industry[industryClassIndex].child}}" 
+          data-index="{{index}}" 
+          data-id="{{item.id}}" 
+          data-title="{{item.title}}" 
+          class="list {{index==industryIndex?'cur':''}}" 
+          bindtap="industrySelect">
+      {{item.title}}
+    </view> -->
+    <!-- 多选补丁 -->
+    <view wx:for="{{industry[industryClassIndex].child}}" 
+          data-index="{{index}}" 
+          data-id="{{item.id}}" 
+          data-title="{{item.title}}" 
+          class="list {{hyidObj[item.id]?'cur':''}}" 
+          bindtap="industrySelect">
+      {{item.title}}
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 地图弹出页 -->
+<view class="mapBlock" style="display:none">
+  <map
+      id="myMap"
+      style="width: 100%; height: 300px;"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      markers="{{markers}}"
+      covers="{{covers}}"
+      show-location
+    ></map>
+</view>

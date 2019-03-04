@@ -1,0 +1,7 @@
+<view class="dl y-rpad20 y-tpad20">
+    <view class="dt">{{name}}</view>
+    <view class="dd">
+      <textarea class="y-h140" placeholder="{{'输入'+name}}" value="{{value}}" bindinput="input" maxlength='{{textLength}}'></textarea>
+      <view class="font-num">{{nowLength}}/{{textLength}}</view>
+    </view>
+  </view>

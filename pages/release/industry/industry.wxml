@@ -1,0 +1,33 @@
+<!-- <view class="left-part">
+  <view>建材/石材/照明/暖通</view>
+  <view class="cur">电子/电力/通讯</view>
+  <view>食品/果蔬/饮料/酒</view>
+  <view>汽配/摩配/自行车</view>
+  <view>机械/五金/工业</view>
+  <view>印刷/包装/纸业</view>
+</view>
+<view class="right-part y-bgw">
+  <view>电子</view>
+  <view class="cur">电子</view>
+  <view>电子</view>
+  <view>电子</view>
+  <view>电子</view>
+  <view>电子</view>
+  <view>电子</view>
+  <view>电子</view>
+  <view>电子</view>
+</view> -->
+
+<view class="industryBlock" >
+  <scroll-view scroll-y="true" class="left-part">
+    <view wx:for="{{industry}}" data-id="{{index}}" class="list {{index==industryClassIndex?'cur':''}}" bindtap="industryClass">{{item.title}}</view>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="right-part y-bgw">
+    <view wx:for="{{industry[industryClassIndex].child}}"  
+          data-index="{{index}}" 
+          data-id="{{item.id}}" 
+          data-title="{{item.title}}"
+          class="list {{index==industryIndex?'cur':''}}" 
+          bindtap="industrySelect">{{item.title}}</view>
+  </scroll-view>
+</view>

@@ -1,0 +1,3 @@
+/* components/columns/text/text.wxss */
+@import "../../../app.wxss";
+@import "../../../pages/release/detail/detail.wxss";

@@ -1,0 +1,60 @@
+<navigator class="li" url="{{'../../classification/detail/detail?id='+item.id}}" wx:if="{{showType==1}}" wx:for="{{data}}" >
+  <view class="img-box">
+    <view class="mark">{{item.category}}</view>
+    <image src="{{item.main_image}}" />
+    <view class="txt" wx:if="{{item.brief}}">{{item.brief}}</view>
+  </view>
+  <view class="info-box y-bpad20">
+    <view class="til" wx:if="{{item.cmodel!='air_ticket'&&item.cmodel!='group'}}">{{item.title}}</view>
+   
+    <view class="ticket" wx:if="{{item.cmodel=='air_ticket'||item.cmodel=='group'}}">
+      <view class="t y-grid y-alignc y-bmar10 y-tpad10">
+        <image src="../../images/wang.png" class="y-rmar10"/>
+        <text class="y-rmar14">{{item.dep_address}}-{{item.ret_address}}</text>
+        <image src="../../images/timeico.png" class="y-rmar14"/>
+        <text>{{item.dep_date}}</text>
+      </view>
+      <view class="t y-grid y-alignc" wx:if="{{item.is_return}}">
+        <image src="../../images/fan.png" class="y-rmar10"/>
+        <text class="y-rmar14">{{item.ret_address}}-{{item.dep_address}}</text>
+        <image src="../../images/timeico.png" class="y-rmar14"/>
+        <text>{{item.ret_date}}</text>
+      </view>
+    </view>
+    <view class="y-grid row1 y-alignc">
+      <view class="y-flex1">
+        <text>特价</text>
+        <text>￥</text>
+        <text>{{item.special_price}}</text>
+      </view>
+      <view>剩余{{item.remain_num}}</view>
+    </view>
+    <view class="row2">发布时间：{{item.created_at}}</view>
+    <view class="row3 y-grid">
+      <text>发布地点：</text>
+      <view>
+        <text>{{item.company_city}}</text>
+        <image src="../../images/localico.png" />
+      </view>
+    </view>
+  </view>
+</navigator>
+
+<navigator class="li" wx:if="{{showType==2}}" wx:for="{{data}}" url="{{'../../classification/detail/detail?id='+item.id}}">
+  <view class="img-box">
+    <view class="mark">{{item.category}}</view>
+    <image src="{{item.main_image}}" />
+    <view class="txt" wx:if="{{item.brief}}">{{item.brief}}</view>
+  </view>
+  <view class="info-box y-bpad20">
+    <view class="til">{{item.title}}</view>
+    <view class="row2">发布时间：{{item.created_at}}</view>
+    <view class="row3 y-grid">
+      <text>发布地点：</text>
+      <view>
+        <text>{{item.company_city}}</text>
+        <image src="../../images/localico.png" />
+      </view>
+    </view>
+  </view>
+</navigator>

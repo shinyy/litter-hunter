@@ -1,0 +1,7 @@
+/* components/detail/image/image.wxss */
+@import "../../../app.wxss";
+@import "../../../pages/classification/detail/detail.wxss";
+image{
+  width: 100%;
+  /* height: auto; */
+}

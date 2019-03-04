@@ -1,0 +1,314 @@
+<view class="screen y-grid">
+  <view class="y-flex1 y-grid y-alignc y-j-c {{tabIndex==0?'cur':''}}" data-index="0" bindtap="tabTap">
+    <text>行业</text>
+    <image src="../../../images/down.png" wx:if="{{tabIndex!=0}}" />
+    <image src="../../../images/up.png" wx:if="{{tabIndex==0}}" />
+  </view>
+  <view class="y-flex1 y-grid y-alignc y-j-c {{tabIndex==1?'cur':''}}" data-index="1" bindtap="tabTap">
+    <text>国家/城市</text>
+    <image src="../../../images/down.png" wx:if="{{tabIndex!=1}}" />
+    <image src="../../../images/up.png" wx:if="{{tabIndex==1}}" />
+  </view>
+  <view class="y-flex1 y-grid y-alignc y-j-c {{tabIndex==2?'cur':''}}" data-index="2" bindtap="tabTap">
+    <text>筛选</text>
+    <image src="../../../images/down.png" wx:if="{{tabIndex!=2}}" />
+    <image src="../../../images/up.png" wx:if="{{tabIndex==2}}" />
+  </view>
+  <view class="y-flex1 y-grid y-alignc y-j-c {{tabIndex==3?'cur':''}}" data-index="3" bindtap="tabTap">
+    <text>智能排序</text>
+    <image src="../../../images/down.png" wx:if="{{tabIndex!=3}}" />
+    <image src="../../../images/up.png" wx:if="{{tabIndex==3}}" />
+  </view>
+</view>
+<!-- 行业 -->
+<view class="industryBlock" wx:if="{{tabIndex==0}}">
+  <scroll-view scroll-y="true" class="left-part">
+    <view wx:for="{{industry}}" data-id="{{index}}" class="list {{index==industryClassIndex?'cur':''}}" bindtap="industryClass">
+      {{item.title}}
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="right-part y-bgw">
+    <view wx:for="{{industry[industryClassIndex].child}}" data-id="{{index}}" data-hy_id="{{item.id}}" class="list {{index==industryIndex?'cur':''}}" bindtap="industrySelect">
+      {{item.title}}
+    </view>
+  </scroll-view>
+</view>
+<!-- 国家城市 -->
+<City wx:if="{{selectAddress==1&&tabIndex==2}}" cssType="sp" bind:hideCityBlock="hideCityBlock"></City>
+<!-- 机票用 -->
+<view class="addressBlock" wx:if="{{tabIndex==1}}">
+  <view class="tab y-grid">
+    <view class="{{cityTabIndex==0?'cur':''}}" data-index="0" bindtap="cityTabTap">国内城市</view>
+    <view class="{{cityTabIndex==1?'cur':''}}" data-index="1" bindtap="cityTabTap">国外城市</view>
+  </view>
+  <scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true">
+    <view class="">
+      <!-- <view class="dl y-bmar10">
+        <view class="dt">当前位置</view>
+        <view class="dd y-lpad20 y-f28">定位中…</view>
+      </view> -->
+      <!-- <view class="dl">
+        <view class="dt">热门城市</view>
+        <view class="dd y-lpad20 hot">
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+          <view>北京</view>
+        </view>
+      </view> -->
+    </view>
+    <view wx:if="{{cityTabIndex==0}}">
+      <view class="dl" id="{{index}}" wx:for="{{cityList.domestic}}">
+        <view class="dt">{{index}}</view>
+        <view class="dd">
+          <view class="li {{city_id==item.id?'cur':''}}" wx:for="{{item}}" data-id="{{item.id}}" data-city="{{item.name}}" bindtap="selectCity">
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+      <!-- <view class="dl" id="{{index}}" wx:for="{{cityList}}">
+        <view class="dt">{{index}}</view>
+        <view class="dd">
+          <view class="li" 
+                wx:for="{{item}}" 
+                data-id="{{item.id}}" 
+                data-lat="{{item.latitude}}"
+                data-lng="{{item.longitude}}"                
+                data-city="{{item.region_name}}" 
+                bindtap="selectCity">{{item.region_name}}</view>
+        </view>
+      </view> -->
+    </view>
+    <view wx:if="{{cityTabIndex==1}}">
+      <view class="dl" id="{{index}}" wx:for="{{cityList.foreign}}">
+        <view class="dt">{{index}}</view>
+        <view class="dd">
+          <view class="li {{city_id==item.id?'cur':''}}" wx:for="{{item}}" data-id="{{item.id}}" data-city="{{item.name}}" bindtap="selectCity">
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="index">
+      <view bindtap='jumpTo' data-opt="{{item}}" wx:for="{{cityIndex}}">{{item}}</view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 筛选 -->
+<view class="maskBlock" wx:if="{{tabIndex==2}}">
+  <view class="inner y-bgw y-tpad20" wx:if="{{model_name!='air_ticket'&&model_name!='group'}}">
+    <view class="y-bpad100">
+      <view class="dl">
+        <view class="dt">日期区间</view>
+        <view class="dd y-grid y-alignc y-j-c">
+          <view class="bg">
+            <picker mode="date" value="{{date}}" start="{{dateTrue}}" end="2020-12-31" bindchange="bindDateChange">
+              <!-- <view>{{date}}</view> -->
+              <view>{{start_time||'请选择'}}</view>
+            </picker>
+          </view>
+          <view class="y-lrmar20">-</view>
+          <view class="bg">
+            <picker mode="date" value="{{date}}" start="{{dateNextTrue}}" end="2021-01-01" bindchange="bindNextDateChange">
+              <!-- <view>{{dateN}}</view> -->
+              <view>{{end_time||'请选择'}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view class="dl">
+        <view class="dt">价格区间</view>
+        <view class="dd y-grid y-alignc y-j-c">
+          <view class="bg">
+            <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{price1}}" data-id="start">
+              <view class="picker">{{price1[index]}}</view>
+            </picker> -->
+            <input type="digit" placeholder='最小价格' bindinput="minPriceInput" value="{{minPriceInput}}" />
+          </view>
+          <view class="y-lrmar20">-</view>
+          <view class="bg">
+            <!-- <picker bindchange="bindPickerChange" value="{{index2}}" range="{{price2}}" data-id="end">
+              <view class="picker">{{price2[index2]}}</view>
+            </picker> -->
+            <input type="digit" placeholder='最大价格' bindinput="maxPriceInput" value="{{maxPriceInput}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btnrow y-grid">
+      <view class="y-flex1" bindtap="reset">重置</view>
+      <view class="y-flex1" bindtap="submitScreen">确定</view>
+    </view>
+  </view>
+  <view class="inner y-bgw" wx:if="{{model_name=='air_ticket'||model_name=='group'}}">
+    <view class="ticket">
+      <view class="t-tab y-grid y-alignc">
+        <!-- <view class="y-flex1 cur">
+          <view class="c">单程</view>
+          </view>
+        <view class="bor"></view>
+        <view class="y-flex1">
+          <view class="c">往返</view>
+          </view> -->
+        <view class="y-flex1 {{index==ticketTabIndex?'cur':''}}" wx:for="{{ticketTab}}" bindtap="ticketTabTap" data-index="{{index}}">
+          <view class="c">{{item}}</view>
+        </view>
+      </view>
+      <view class="y-grid  t-tab-inner">
+        <view class="y-flex1 block">
+          <view class="b">
+            <view>出发城市</view>
+            <view bindtap="addressInput" data-type="dep">{{dep_address_name||'请选择'}}</view>
+          </view>
+          <view class="b">
+            <view>去程日期</view>
+            <!-- <view >2018-11-25</view> -->
+            <view>
+              <picker mode="date" value="{{date}}" start="{{dateTrue}}" end="2020-12-31" bindchange="bindDateChange">
+                <view>{{dep_date||'请选择'}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <image src="../../../images/go.png" class="arr-return" wx:if="{{ticketTabIndex==0}}" />
+        <image src="../../../images/return.png" class="arr-return" wx:if="{{ticketTabIndex==1}}" />
+        <view class="y-flex1 block">
+          <view class="b">
+            <view>到达城市</view>
+            <view bindtap="addressInput" data-type="ret">{{ret_address_name||'请选择'}}</view>
+          </view>
+          <view class="b" wx:if="{{ticketTabIndex==1}}">
+            <view>返程日期</view>
+            <!-- <view >2018-11-25</view> -->
+            <view>
+              <picker mode="date" value="{{date}}" start="{{dateNextTrue}}" end="2021-01-01" bindchange="bindNextDateChange">
+                <view>{{ret_date||'请选择'}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btnrow y-grid">
+      <view class="y-flex1" bindtap="reset">重置</view>
+      <view class="y-flex1" bindtap="submitScreen">确定</view>
+    </view>
+  </view>
+</view>
+<!-- 智能排序 -->
+<view class="maskBlock" wx:if="{{tabIndex==3}}">
+  <view class="inner y-bgw sort">
+    <view class="{{order==''?'cur':''}}" bindtap="selectOrder" data-order="">智能排序</view>
+    <view class="{{order=='nearby'?'cur':''}}" bindtap="selectOrder" data-order="nearby">
+      离我最近的发布者
+    </view>
+    <view class="{{order=='newest'?'cur':''}}" bindtap="selectOrder" data-order="newest">
+      最新发布/最近更新
+    </view>
+    <view class="{{order=='view'?'cur':''}}" bindtap="selectOrder" data-order="view">最多浏览</view>
+    <view class="{{order=='special'?'cur':''}}" bindtap="selectOrder" data-order="special">
+      特价优先
+    </view>
+  </view>
+</view>
+<!-- 供应 -->
+<view wx:if="{{type!='demand'}}">
+  <view class="tabNav-inner y-bgw" wx:if="{{model_name!='air_ticket'&&model_name!='group'}}">
+    <navigator class="y-grid y-pad20" wx:for="{{list.data}}" url="{{'../detail/detail?id='+item.id}}">
+      <view class="img-box">
+        <image src="{{item.main_image+'?x-oss-process=image/crop,w_250,h_250'}}" />
+        <!-- <image src="{{item.main_image}}" /> -->
+        <view class="mark">{{item.category}}</view>
+      </view>
+      <view class="t y-flex1">
+        <view class="til">{{item.title}}</view>
+        <view class="tils">{{item.brief?'适用展会：'+item.brief:''}}</view>
+        <view class="txt">
+          <view>发布时间：{{item.created_at}}</view>
+          <!-- <view>
+            发布地点：
+            <text>{{item.company_city}}</text>
+          </view> -->
+
+          <view class="y-grid y-j-s y-alignc">
+            <view>
+              发布地点：
+              <text>{{item.company_city}}</text>
+            </view>
+            <view class="sp">
+              <!-- {{item.is_special?'特价':'价格'}} -->
+              <text>￥</text>
+              <text>{{item.is_special?item.special_price:item.origin_price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="tabNav-inner y-bgw" wx:if="{{model_name=='air_ticket'||model_name=='group'}}">
+    <navigator class="y-grid y-pad20" wx:for="{{list.data}}" url="{{'../detail/detail?id='+item.id}}">
+      <view class="img-box">
+        <image src="{{item.main_image}}" />
+        <view class="mark">{{item.category}}</view>
+      </view>
+      <view class="t y-flex1">
+        <view class="ticket y-bmar10">
+          <view class="t y-grid y-alignc y-bmar10">
+            <image src="../../../images/wang.png" class="y-rmar10" />
+            <text class="y-rmar14">{{item.dep_address}}-{{item.ret_address}}</text>
+            <image src="../../../images/timeico.png" class="y-rmar14" />
+            <text>{{item.dep_date}}</text>
+          </view>
+          <view class="t y-grid y-alignc" wx:if="{{item.is_return}}">
+            <image src="../../../images/fan.png" class="y-rmar10" />
+            <text class="y-rmar14">{{item.ret_address}}-{{item.dep_address}}</text>
+            <image src="../../../images/timeico.png" class="y-rmar14" />
+            <text>{{item.ret_date}}</text>
+          </view>
+        </view>
+        <!-- <view class="tils">{{item.brief}}</view> -->
+        <view class="tils">{{item.brief?'适用展会：'+item.brief:''}}</view>
+        <view class="txt">
+          <view>发布时间：{{item.created_at}}</view>
+          <view class="y-grid y-j-s y-alignc">
+            <view>
+              发布地点：
+              <text>{{item.company_city}}</text>
+            </view>
+            <view class="sp">
+              <!-- {{item.is_special?'特价':'价格'}} -->
+              <text>￥</text>
+              <text>{{item.is_special?item.special_price:item.origin_price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+<!-- 供应end -->
+<!-- 需求 -->
+<view wx:if="{{type=='demand'}}" class="demand">
+  <navigator class="list y-bgw y-bmar20" wx:for="{{list.data}}" url="{{'../detail/detail?id='+item.id+'&type=demand'}}">
+    <view class="y-grid y-alignc top-bg">
+      <view class="headimg"><image src="{{item.headimgurl}}" /></view>
+      <view class="y-flex1">
+        <view class="y-f28">{{item.company_name}}</view>
+        <view class="y-grid y-alignc">
+          <image class="localico" src="../../../images/localico2.png" />
+          <text class="y-f22">{{item.company_city}}</text>
+        </view>
+      </view>
+      <view class="mark">{{item.category}}</view>
+    </view>
+    <view class="desc">{{item.description}}</view>
+    <view class="date">发布时间：{{item.created_at}}</view>
+  </navigator>
+</view>
+<!-- 需求end -->
+<view class="tabNav-inner y-bgw" wx:if="{{!list||list.data.length==0}}">
+ <view class="empty">小主，暂无内容哦！</view>
+</view>
+<tabBar currentPage="2"></tabBar>

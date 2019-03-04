@@ -1,0 +1,220 @@
+<view class="y-bgw y-lpad20 y-bmar20">
+  <view class="y-h80 y-grid y-alignc y-j-s y-f28 y-rpad30" style="border-bottom:1rpx solid #e6e6e6;">
+    <view class="y-c66 y-flex1">行业</view>
+    <!-- <picker bindchange="industryPickerChange" value="{{index}}" range="{{industry}}">
+      <view class="picker y-rmar10">{{industryIndex==''?'请选择行业':industry[industryIndex]}}</view>
+     </picker> -->
+    <!-- <navigator class="y-rmar10" url="../industry/industry">{{industry||'请选择行业'}}</navigator> -->
+    <view class="y-rmar10" bindtap="industryBlockShow">{{industryCur||'请选择行业'}}</view>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+  <view class="y-h80 y-grid y-alignc y-j-s y-f28 y-rpad30" style="border-bottom:1rpx solid #e6e6e6;">
+    <view class="y-c66 y-flex1">国家/城市</view>
+    <view class="y-rmar10" bindtap="showCityBlock">{{cityName||'请选择城市'}}</view>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+  <view class="y-h80 y-grid y-alignc y-j-s y-f28 y-rpad30">
+    <view class="y-c66 y-flex1">时间</view>
+    <!-- <picker mode="date" bindchange="bindDateChange" value="{{date}}" start="{{dateTrue}}">
+      <view class="picker y-rmar10">{{date||'请选择时间'}}</view>
+    </picker> -->
+    <view class="y-rmar10" bindtap="dateBlockShow">{{date!=''?date+'到'+dateN:'请选择时间'}}</view>
+    <image src="../../../images/arr-right.png" class="arr-right" />
+  </view>
+</view>
+<!-- 动态模板 -->
+<view class="y-bgw y-lpad20 y-f28 y-bmar20 y-bpad20">
+  <view wx:for="{{columns}}">
+    <Text wx:if="{{item.type=='Text'&&item.field_type!='DATETIME'}}" 
+          name="{{item.name}}" 
+          fieldType="{{item.field_type}}" 
+          data-fieldname="{{item.field_name}}"          
+          bind:textInput="textInput"></Text>
+    <Text wx:if="{{item.type=='Text'&&item.field_type=='DATETIME'}}" 
+          name="{{item.name}}" 
+          fieldType="{{item.field_type}}" 
+          data-fieldname="{{item.field_name}}"
+          bind:ticketDateInput="ticketDateInput"></Text>    
+    <TextareaC wx:if="{{item.type=='Textarea'}}" name="{{item.name}}" data-fieldname="{{item.field_name}}" bind:textInput="textInput"></TextareaC>
+    <ImageC wx:if="{{item.type=='Image'}}" name="{{item.name}}" data-fieldname="{{item.field_name}}" bind:imgInput="imgInput"></ImageC>
+    <ImagesC wx:if="{{item.type=='Images'}}" name="{{item.name}}" data-fieldname="{{item.field_name}}" bind:imgInput="imgInput"></ImagesC>
+    <SwitchC wx:if="{{item.type=='Switch'}}" name="{{item.name}}" data-fieldname="{{item.field_name}}"></SwitchC>
+  </view>
+</view>
+<!-- 静态模板 -->
+<!-- <text >静态模板</text> -->
+<view style="display:none">
+  <view class="y-bgw y-lpad20 y-f28 y-bmar20">
+    <view class="y-grid y-alignc table ">
+      <view>是否往返：</view>
+      <view class="y-flex1">
+        <switch bindchange="switch2Change" />
+      </view>
+    </view>
+    <view class="y-grid table ">
+      <view>时间：</view>
+      <!-- <view class="y-flex1">2018/11/22 - 2018/11/26</view> -->
+      <picker bindchange="industryPickerChange" value="{{index}}" range="{{industry}}">
+        <view class="picker y-rmar10">{{industryIndex==''?'请选择时间':industry[industryIndex]}}</view>
+      </picker>
+    </view>
+    <view class="y-grid y-alignc table ">
+      <view>展会名称：</view>
+      <!-- <view class="y-flex1">摩洛哥卡萨布兰卡国际食品及酒店用品展览会跟进及邀特级买家、分销商提供高质量</view> -->
+      <view class="y-flex1">
+        <input type="text" placeholder="请输入展会名称" />
+      </view>
+    </view>
+    <view class="y-grid y-alignc table ">
+      <view>地址：</view>
+      <view class="y-flex1">
+        <input type="text" placeholder="请输入地址" />
+      </view>
+    </view>
+    <view class="y-grid y-alignc table ">
+      <view>展馆：</view>
+      <view class="y-flex1">
+        <input type="text" placeholder="请输入展馆名称" />
+      </view>
+    </view>
+    <view class="y-grid y-alignc table ">
+      <view>展馆周期：</view>
+      <view class="y-flex1">
+        <input type="text" placeholder="请输入展馆周期" />
+      </view>
+    </view>
+    <view class="y-grid y-alignc table ">
+      <view>价格：</view>
+      <view class="y-flex1">
+        <input type="text" placeholder="请输入价格" />
+      </view>
+    </view>
+    <view class="y-grid y-alignc table ">
+      <view>展馆数量：</view>
+      <view class="y-flex1">
+        <input type="text" placeholder="请输入展馆数量" />
+      </view>
+    </view>
+  </view>
+  <view class="y-bgw y-lrpad20 y-bpad30 y-bmar20">
+    <view class="dl">
+      <view class="dt">展会亮点</view>
+      <view class="dd">
+        <textarea class="y-h140" placeholder="请输入展会亮点(简明概括展会亮点)"></textarea>
+        <view class="font-num">0/25</view>
+      </view>
+    </view>
+    <view class="dl">
+      <view class="dt">展会简介</view>
+      <view class="dd">
+        <textarea class="y-h240" placeholder="请输入展会简介(用几句话简单描述)"></textarea>
+        <view class="font-num">0/100</view>
+      </view>
+    </view>
+    <view class="dl">
+      <view class="dt">展会补贴</view>
+      <view class="dd">
+        <textarea class="y-h240" placeholder="请输入补贴情况（若有）"></textarea>
+        <view class="font-num">0/100</view>
+      </view>
+    </view>
+  </view>
+  <view class="y-bgw y-bmar20 y-lpad20 y-bpad30">
+    <view class="y-f30 y-l70">请上传主图</view>
+    <view class="upliad-row  y-bmar20">
+      <view class="img-list fl">
+        <image class="detailImg" wx:for="{{headImg}}" src="{{headImg[index]}}" data-index="{{index}}" bindtap='delImgSp' />
+      </view>
+      <image src="../../../images/filebtn.png" bindtap="chooseImgSp" class="filebtn" wx:if="{{headImg.length==0}}" />
+    </view>
+    <view class="y-f30 y-l70">
+      请上传主图
+      <text class="y-c99 y-f24">(最多上传9张)</text>
+    </view>
+    <view class="upliad-row  y-bmar20">
+      <view class="img-list fl">
+        <image class="detailImg" wx:for="{{img}}" src="{{img[index]}}" data-index="{{index}}" bindtap='delImg' />
+      </view>
+      <image src="../../../images/filebtn.png" bindtap="chooseImg" class="filebtn" wx:if="{{img.length!=9}}" />
+    </view>
+  </view>
+</view>
+<!-- 静态模板end -->
+<view class="y-bgw y-lpad20 y-f28 y-bmar20">
+  <view class="y-grid table y-alignc sp">
+    <view>公司名称：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入公司名称" />
+    </view>
+  </view>
+  <view class="y-grid table y-alignc sp">
+    <view>联系人：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入联系人" />
+    </view>
+  </view>
+  <view class="y-grid table y-alignc sp">
+    <view>联系方式：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入联系电话" />
+    </view>
+  </view>
+  <view class="y-grid table y-alignc sp">
+    <view>公司地址：</view>
+    <view class="y-flex1">
+      <input type="text" placeholder="请输入公司地址" />
+    </view>
+  </view>
+</view>
+<view class="other">
+  <view>此处发布者信息同账号注册信息,如有更新,请到个人中心更新修改.</view>
+  <navigator>前往修改></navigator>
+</view>
+<!-- <navigator class="next-step" url="../extension/extension" bindtap="save">下一步</navigator> -->
+<navigator class="next-step" bindtap="save">下一步</navigator>
+<!-- 行业弹出页 -->
+<view class="industryBlock" wx:if="{{industryBlock}}">
+  <scroll-view scroll-y="true" class="left-part">
+    <view wx:for="{{industry}}" data-id="{{index}}" class="list {{index==industryClassIndex?'cur':''}}" bindtap="industryClass">
+      {{item.title}}
+    </view>
+  </scroll-view>
+  <scroll-view scroll-y="true" class="right-part y-bgw">
+    <view wx:for="{{industry[industryClassIndex].child}}" data-index="{{index}}" data-id="{{item.id}}" data-title="{{item.title}}" class="list {{index==industryIndex?'cur':''}}" bindtap="industrySelect">
+      {{item.title}}
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 日期弹出页 -->
+<view class="maskBlock" wx-if="{{dateBlock}}">
+  <view class="inner y-bgw y-tpad20">
+    <view class="y-bpad100">
+      <view class="dl">
+        <view class="dt">日期区间</view>
+        <view class="dd y-grid y-alignc y-j-c">
+          <view class="bg">
+            <picker mode="date" value="{{date}}" start="{{dateTrue}}" end="2020-12-31" bindchange="bindDateChange">
+              <view>{{date}}</view>
+            </picker>
+          </view>
+          <view class="y-lrmar20">-</view>
+          <view class="bg">
+            <picker mode="date" value="{{date}}" start="{{dateNextTrue}}" end="2021-01-01" bindchange="bindNextDateChange">
+              <view>{{dateN}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btnrow y-grid">
+      <view class="y-flex1">重置</view>
+      <view class="y-flex1" bindtap="dateSubmit">确定</view>
+    </view>
+  </view>
+</view>
+
+<!-- 城市弹出页 -->
+<City wx:if="{{cityBlock}}"
+      bind:hideCityBlock="showCityBlock"
+></City>

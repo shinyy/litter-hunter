@@ -1,0 +1,13 @@
+/* pages/home/special/special.wxss */
+@import '../index/index.wxss';
+page{
+  background: #fff;
+}
+.tabNav-inner .txt .sp text{
+  color: #f31d54;  
+}
+.tabNav-inner .txt .sp text:nth-child(2){
+  font-size: 36rpx;
+  /* font-weight: bold; */
+  font-family: Arial, Helvetica, sans-serif
+}

@@ -1,0 +1,82 @@
+/* pages/release/extension/extension.wxss */
+.row{
+  height: 100rpx;
+  background: #fff;
+  padding: 0 50rpx 0 20rpx;
+}
+.row>image{
+  width: 89rpx;
+  height: 54rpx;
+}
+page{
+  padding-top: 20rpx;
+}
+.txt{
+  padding: 20rpx 40rpx;
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+.txt>text{
+  color: #000;
+}
+.bottom-row{
+  background: #fff;
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.sumbitBtn{
+  width: 180rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  background: #f31d53;
+}
+.dl{
+  height: 80rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  font-size: 28rpx;
+}
+.dt{
+  color: #666;
+  margin-right: 86rpx;
+}
+.mask .inner{
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.toprow{
+  height: 90rpx;
+  position: relative;
+  text-align: center;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  color: #666;
+  font-size: 30rpx;
+}
+.toprow image{
+  width: 23rpx;
+  height: 23rpx;
+  position: absolute;
+  top: 34rpx;
+  right: 20rpx;
+}
+.ul>view{
+  height: 90rpx;
+  border-bottom: 1rpx solid #e6e6e6;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+.ul>view text{
+  color: #f31d53;
+  padding-left: 20rpx;
+}

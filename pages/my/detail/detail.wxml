@@ -1,0 +1,62 @@
+<view class="body y-bgw">
+  <!-- <view class="li">
+    <view class="y-grid y-alignc">
+      <view class="y-flex1">
+        <view class="til">充值</view>
+        <view class="txt">
+          <view >2018-10-30 13:30:20</view>
+          <view >流水单号：4545487878787</view>          
+        </view>
+      </view>
+      <view class="b">+5金币</view>
+    </view>
+  </view>
+  <view class="li">
+    <view class="y-grid y-alignc">
+      <view class="y-flex1">
+        <view class="til">信息置顶7天</view>
+        <view class="txt">
+          <view >2018-10-30 13:30:20</view>        
+        </view>
+      </view>
+      <view class="b sp">-5金币</view>
+    </view>
+    <view class="y-grid bg">
+      <view class="mark">展会酒店</view>
+      <view class="y-flex1">《广州国际工业自动化技术及装备展览会SIAF》</view>
+    </view>
+  </view>
+  <view class="li">
+    <view class="y-grid y-alignc">
+      <view class="y-flex1">
+        <view class="til">信息置顶7天</view>
+        <view class="txt">
+          <view >2018-10-30 13:30:20</view>        
+        </view>
+      </view>
+      <view class="b sp">-5金币</view>
+    </view>
+    <view class="y-grid bg">
+      <view class="mark">展会酒店</view>
+      <view class="y-flex1">《广州国际工业自动化技术及装备展览会SIAF》《广州国际工业自动化技术及装备展览会SIAF》《广州国际工业自动化技术及装备展览会SIAF》《广州国际工业自动化技术及装备展览会SIAF》</view>
+    </view>
+  </view> -->
+
+
+
+  <view class="li" wx:for="{{flows.data}}">
+    <view class="y-grid y-alignc">
+      <view class="y-flex1">
+        <view class="til">{{item.title}}</view>
+        <view class="txt">
+          <view >{{item.create_time}}</view>        
+        </view>
+      </view>
+      <view class="b {{item.coins>0?'':'sp'}}">{{item.coins}}金币</view>
+    </view>
+    <view class="y-grid bg">
+      <view class="mark">描述</view>
+      <view class="y-flex1">{{item.description}}</view>
+    </view>
+  </view>
+</view>

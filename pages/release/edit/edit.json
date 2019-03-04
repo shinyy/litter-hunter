@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "编辑详情",
+  "usingComponents": {
+    "Text": "/components/columns/text/text",
+    "TextareaC": "/components/columns/textarea/textarea",
+    "ImageC":"/components/columns/image/image",
+    "ImagesC":"/components/columns/images/images",
+    "SwitchC":"/components/columns/switch/switch",
+    "City":"/components/city/city"
+  }
+}

@@ -1,0 +1,64 @@
+<view class="body">
+  <view class="top">
+    <image src="../../../images/my_top_bj.png" />
+    <view class="user-block y-grid y-j-c y-alignc">
+      <view class="user-img">
+        <image src="{{headImg||'../../../images/my_top_head_normal.png'}}" />
+      </view>
+      <navigator class="y-grid y-flex1 y-alignc" url="{{info.member.mobile==null?'../register/register':'../edit/register'}}">
+        <view class="y-flex1 txt">
+          <view>{{info.member.nickname}}</view>
+          <view>{{info.member.mobile==null?'未绑定手机':info.member.mobile}}</view>          
+        </view>
+        <image src="../../../images/my_top_icon_into.png" class="arr-right1" />
+      </navigator>
+    </view>
+    <view class="my-con y-grid y-alignc">
+      <view class="y-flex1">
+        <text >我的金币</text>
+        <text >{{info.member.coins}}</text>
+      </view>
+      <navigator url="../detail/detail">查看明细</navigator>
+      <navigator url="../recharge/recharge">去充值</navigator>      
+    </view>
+  </view>
+
+
+  <swiper class="swiper-banner" indicator-dots="{{indicatorDots}}" circular="true"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{info.member_ads}}">
+    <swiper-item>
+      <image src="{{item.image}}" class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="nav-row">
+  <navigator class="y-grid y-alignc" url="../release/release">
+    <image src="../../../images/my_lab_icon1.png" class="icon"/>
+    <text class="y-flex1">我的发布</text>
+    <image src="../../../images/my_lab_icon_into.png" class="arr-right" />
+  </navigator>
+  <view class="y-grid y-alignc"  bindtap="call" data-type="1">
+    <image src="../../../images/my_lab_icon2.png" class="icon"/>
+    <text class="y-flex1">商务合作</text>
+    <image src="../../../images/my_lab_icon_into.png" class="arr-right" />
+  </view>
+  <navigator class="y-grid y-alignc"  url="../feedback/feedback">
+    <image src="../../../images/my_lab_icon3.png" class="icon"/>
+    <text class="y-flex1">建议反馈</text>
+    <image src="../../../images/my_lab_icon_into.png" class="arr-right" />
+  </navigator>
+  <navigator class="y-grid y-alignc" url="../about/about">
+    <image src="../../../images/my_lab_icon4.png" class="icon"/>
+    <text class="y-flex1">关于我们</text>
+    <image src="../../../images/my_lab_icon_into.png" class="arr-right" />
+  </navigator>
+  <view class="y-grid y-alignc" bindtap="call" data-type="2">
+    <image src="../../../images/my_lab_icon5.png" class="icon"/>
+    <text class="y-flex1">联系我们</text>
+    <image src="../../../images/my_lab_icon_into.png" class="arr-right" />
+  </view>
+</view>
+</view>
+
+<tabBar currentPage='4'></tabBar>

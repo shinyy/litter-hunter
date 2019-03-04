@@ -1,0 +1,70 @@
+<view class="y-grid y-alignc row" wx:if="{{options.type!='demand'}}">
+  <view class="y-flex1">
+    <text class="y-f28">开启特价</text>
+    <text class="y-f24" style="color:#f31d53">({{coins}}金币)</text>
+  </view>
+  <!-- <switch checked="{{switch1Checked}}" bindchange="switch1Change" color='#f31d53'/> -->
+  <image src="../../../images/switch.png" bindtap="spacilBtn" wx:if="{{spacil==0}}" />
+  <image src="../../../images/switch1.png" bindtap="spacilBtn" wx:if="{{spacil==1}}" />
+</view>
+<view class="spacilSlider y-bgw y-lpad20 y-bmar20" wx:if="{{spacil==0}}">
+  <view class="y-grid y-alignc dl">
+    <view class="dt">现价</view>
+    <view class="dd">{{price}}</view>
+  </view>
+  <view class="y-grid y-alignc dl">
+    <view class="dt">原价</view>
+    <view class="dd">
+      <input type="number" placeholder="请输入原价" bindinput="nowPrice"/>
+    </view>
+  </view>
+  <view class="y-grid y-alignc dl">
+    <view class="dt">数量</view>
+    <view class="dd">
+      <input type="number" placeholder="请输入数量" bindinput="inputNum"/>
+    </view>
+  </view>
+</view>
+<view class="txt" wx:if="{{spacil==1&&options.type!='demand'}}">
+  开启特价后，信息发布成功会直接推送给相关关注人群，且信息会带有特价标识，进入特价专区请注意开启特价后信息的有限时间只能为7天。
+</view>
+<view class="y-grid y-alignc row">
+  <view class="y-flex1">
+    <text class="y-f28">置顶</text>
+  </view>
+  <view class="y-f28 y-rmar10">{{topVal}}</view>
+  <!-- <switch checked="{{switch1Checked}}" bindchange="switch1Change" color='#f31d53'/> -->
+  <image src="../../../images/switch.png" bindtap="setTopBtn" wx:if="{{setTop==0||topKey}}" />
+  <image src="../../../images/switch1.png" bindtap="setTopBtn" wx:if="{{setTop==1&&!topKey}}" />
+</view>
+<view class="txt">
+  上首页轮播图，广告位入住等更多推广合作。请到
+  <text>个人中心-商务中心-联系商务</text>
+</view>
+<view class="y-grid y-alignc y-j-s bottom-row">
+  <view class="y-f28 y-lpad20" wx:if="{{topKey||nowPrice&&num}}">
+    推广费用合计：
+    <text style="color:#f31d53;font-family:arail">{{totalCoins}}</text>
+    <text style="font-weight:bold">金币</text>
+  </view>
+  <!-- <navigator class="sumbitBtn" url="../success/success">确认发布</navigator> -->
+  <view  wx:if="{{!topKey||nowPrice&&num}}"></view>
+  <view class="sumbitBtn" bindtap='submit'>确认发布</view>
+</view>
+<view class="mask" wx:if="{{setTop==0}}">
+  <view class="inner">
+    <view class="toprow" bindtap="other">
+      <view>置顶可以让更多的人看到这条信息哦</view>
+      <image src="../../../images/x.png" bindtap="hideMask" />
+    </view>
+    <view class="ul">
+      <view wx:for="{{topList}}" data-key="{{item.key}}" data-val="{{item.val}}" bindtap="topSelect">
+        {{item.val}}
+      </view>
+      <!-- <view>
+        置顶1个月
+        <text>5金币</text>
+      </view> -->
+    </view>
+  </view>
+</view>

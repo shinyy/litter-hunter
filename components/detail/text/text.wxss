@@ -1,0 +1,14 @@
+/* components/detail/text/text.wxss */
+@import "../../../app.wxss";
+@import "../../../pages/classification/detail/detail.wxss";
+.li{
+  /* border-top:1rpx solid #e6e6e6; */
+height:80rpx;
+font-size:28rpx;
+padding-right:30rpx;
+padding-left: 20rpx
+}
+.li>view:nth-child(1){
+  width: 170rpx;
+  margin-right: 10rpx;
+}

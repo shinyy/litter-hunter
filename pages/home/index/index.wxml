@@ -1,0 +1,209 @@
+<!-- 授权弹窗 -->
+     <view class="mask {{showAuthority?'':'hide'}}">
+       <!-- <button open-type='getUserInfo' lang='zh_CN' class="getUserInfoBtn" bindgetuserinfo="getSecret">请授权</button> -->
+
+       <view class="get-inner">
+        <view class="t1">需要您的授权</view>
+        <view class="t2">
+          <view>为了提供更改的服务</view>
+          <view>请在稍后的提示框中点击“允许”</view>
+          
+        </view>
+        <image src="../../../images/get.png"  />
+          <button open-type='getUserInfo' lang='zh_CN' class="getUserInfoBtn" bindgetuserinfo="getSecret">我知道了</button>
+       </view> 
+    </view>   
+  <!-- 授权弹窗 -->
+<view class="body">
+  <view class="search-bar y-grid">
+    <navigator class="y-grid y-alignc y-j-c" url="../address/address">
+      <text>{{cityName}}</text>   
+      <image src="../../../images/arr-down.png" />
+    </navigator>
+    <view class="input-bg y-grid y-alignc" bindtap="searchJump">
+      <image src="../../../images/search.png" />
+      <!-- <input placeholder="输入关键词搜索" /> -->
+      <view >输入关键词搜索</view>
+    </view>
+  </view>
+  <!-- <view class="banner">
+    <image src="{{info.banners[0].image}}" />    
+  </view> -->
+  <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{info.banners}}">
+      <swiper-item>
+        <navigator url="{{'/'+item.url}}">
+          <image src="{{item.image}}" class="slide-image" width="355" height="150" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="nav-block y-bgw y-bmar20">
+    <view class="tab">
+      <view class="li {{tab==0?'cur':''}}" bindtap="tab" data-id="0">供应</view>
+      <view class="li {{tab==1?'cur':''}}" bindtap="tab" data-id="1">需求</view>
+      <view class="jiao {{tab==1?'cur':''}}"></view>
+    </view>
+    <view class="tab-inner">
+      <view class="ul" wx:if="{{tab==0}}">
+      <navigator wx:for="{{info.category_list.supply.category}}" 
+                 url="{{'../../classification/exhibition/exhibition?cid='+item.id+'&model_name='+item.model_name+'&title='+item.name}}">
+          <!-- <image src="../../../images/navico(12).png" /> -->
+          <image src="{{item.ico}}" />          
+          <view>{{item.name}}</view>
+        </navigator>
+      </view>
+      <view class="ul sp" wx:if="{{tab==1}}">
+        <navigator wx:for="{{info.category_list.demand.category}}" 
+                   url="{{'../../classification/exhibition/exhibition?cid='+item.id+'&type=demand'+'&title='+item.name}}">
+          <image src="{{item.ico}}" />  
+          <view>{{item.name}}</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  
+  <swiper class="swiper-banner y-bmar20" circular="{{circular}}" indicator-dots="{{indicatorDots}}"  interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{info.special_ads}}">
+      <swiper-item>
+      <navigator url="{{'/'+item.url}}">
+        <image src="{{item.image}}" class="slide-image" width="355" height="150" />
+      </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="y-bgw y-bmar20">
+    <view class="title-row">
+      <image src="../../../images/tjjx.png" class="tjjx" />
+      <text>特价精选</text>
+      <!-- <view class="change y-grid y-alignc">
+        <image src="../../../images/change.png" />
+        <text>换一批</text>
+      </view> -->
+    </view>
+    <view class="ul">
+      <list1 showType='1'
+             data='{{special}}'
+      ></list1>
+    </view>
+  </view>
+  <swiper class="swiper-banner y-bmar20" circular="{{circular}}" indicator-dots="{{indicatorDots}}"  interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{info.hot_ads}}">
+      <swiper-item>
+        <navigator url="{{'/'+item.url}}">
+          <image src="{{item.image}}" class="slide-image" width="355" height="150" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="y-bgw y-bmar20">
+    <view class="title-row">
+      <image src="../../../images/hot.png" class="tjjx" />
+      <text>近期热门</text>
+      <!-- <view class="change y-grid y-alignc">
+        <image src="../../../images/change.png" />
+        <text>换一批</text>
+      </view> -->
+    </view>
+    <view class="ul">
+      <list1 showType='2' data='{{hot}}'></list1>
+    </view>
+  </view>
+  
+  <swiper class="swiper-banner y-bmar20" circular="{{circular}}" indicator-dots="{{indicatorDots}}"  interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{info.new_ads}}">
+      <swiper-item>
+      <navigator url="{{'/'+item.url}}">
+        <image src="{{item.image}}" class="slide-image" width="355" height="150" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="y-bgw y-bmar20">
+    <view class="title-row">
+      <image src="../../../images/zxsj.png" class="tjjx" />
+      <text>最新上架</text>
+    </view>
+    <view class="tabNav y-grid">
+      <view class="y-flex1 {{newsType=='all'?'cur':''}}" bindtap="newsTap" data-index='0' data-type='all'>全部</view>
+      <view class="y-flex1 {{newsType=='exhibition'?'cur':''}}" bindtap="newsTap" data-index='1' data-type='exhibition'>展会</view>
+      <view class="y-flex1 {{newsType=='air_ticket'?'cur':''}}" bindtap="newsTap" data-index='2' data-type='air_ticket'>展会机票</view>
+      <view class="y-flex1 {{newsType=='hotel'?'cur':''}}" bindtap="newsTap" data-index='3' data-type='hotel'>展会酒店</view>
+      <view class="y-flex1 {{newsType=='group'?'cur':''}}" bindtap="newsTap" data-index='4' data-type='group'>展会团组</view>
+    </view>
+    <view class="tabNav-inner ">
+      <navigator class="li y-grid y-pad20" wx:for="{{news.data}}" wx:if="{{item.cmodel!='air_ticket'&&item.cmodel!='group'}}" url="{{'../../classification/detail/detail?id='+item.id}}">
+        <view class="img-box">
+          <image src="{{item.main_image+'?x-oss-process=image/crop,w_250,h_250'}}" />
+          <view class="mark">{{item.category}}</view>
+        </view>
+        <view class="t y-flex1">
+          <view class="til">{{item.title}}</view>
+          <view class="tils">{{item.brief?'适用展会：'+item.brief:''}}</view>
+          <view class="txt">
+            <view>发布时间：{{item.created_at}}</view>
+            <!-- <view>
+              发布地点：
+              <text>{{item.company_city}}</text>
+            </view> -->
+
+            <view class="y-grid y-j-s y-alignc">
+              <view>
+                发布地点：
+                <text>{{item.company_city}}</text>
+              </view>
+              <view class="sp">
+                <text>￥</text>
+                <text>{{item.is_special?item.special_price:item.origin_price}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+      <navigator class="li y-grid y-pad20" wx:for="{{news.data}}" wx:if="{{item.cmodel=='air_ticket'||item.cmodel=='group'}}" url="{{'../../classification/detail/detail?id='+item.id}}">
+        <view class="img-box">
+          <image src="{{item.main_image+'?x-oss-process=image/crop,w_250,h_250'}}" />
+          <view class="mark">{{item.category}}</view>
+        </view>
+        <view class="t y-flex1">
+          <view class="ticket y-bmar10">
+            <view class="t y-grid y-alignc y-bmar10">
+              <image src="../../../images/wang.png" class="y-rmar10" />
+              <text class="y-rmar14">{{item.dep_address}}-{{item.ret_address}}</text>
+              <image src="../../../images/timeico.png" class="y-rmar14" />
+              <text>{{item.dep_date}}</text>
+            </view>
+            <view class="t y-grid y-alignc" wx:if="{{item.is_return}}">
+              <image src="../../../images/fan.png" class="y-rmar10" />
+              <text class="y-rmar14">{{item.ret_address}}-{{item.dep_address}}</text>
+              <image src="../../../images/timeico.png" class="y-rmar14" />
+              <text>{{item.ret_date}}</text>
+            </view>
+          </view>
+          <view class="tils">{{item.brief?'适用展会：'+item.brief:''}}</view>
+          <view class="txt">
+            <view>发布时间：{{item.created_at}}</view>
+            <!-- <view>
+              发布地点：
+              <text>{{item.company_city}}</text>
+            </view> -->
+            <view class="y-grid y-j-s y-alignc">
+              <view>
+                发布地点：
+                <text>{{item.company_city}}</text>
+              </view>
+              <view class="sp">
+                <text>￥</text>
+                <text>{{item.is_special?item.special_price:item.origin_price}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+
+<tabBar currentPage='1'></tabBar>

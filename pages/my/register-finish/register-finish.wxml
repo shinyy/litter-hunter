@@ -1,0 +1,8 @@
+<view class="y-bgw body">
+  <image src="../../../images/register_icon_ok.png" class="ico"/>
+  <view class="txt1">{{text||'您已成功注册'}}</view>
+  <view class="code-box">
+    <image src="../../../images/ewm.png" />
+  </view>
+  <view class="txt2">长按识别二维码，关注公众号获得特价消息推送</view>
+</view>
